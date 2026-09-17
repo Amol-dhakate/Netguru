@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from netguru import create_app, greet
-from netguru.export import export_static
+from netguru.export import export_static, publish_hostinger_root
 
 
 def test_greet_default() -> None:
@@ -35,4 +35,14 @@ def test_static_export_for_hostinger(tmp_path: Path) -> None:
     assert 'src="static/images/header-sign.jpg"' in html
     assert (dest / "static" / "images" / "header-sign.jpg").is_file()
     assert "DirectoryIndex index.html" in (dest / ".htaccess").read_text(encoding="utf-8")
+
+
+def test_hostinger_root_has_index(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    publish_hostinger_root(repo)
+    assert (repo / "index.html").is_file()
+    assert (repo / "static" / "css" / "style.css").is_file()
+    assert "DirectoryIndex index.html" in (repo / ".htaccess").read_text(encoding="utf-8")
+
 

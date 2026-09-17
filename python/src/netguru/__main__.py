@@ -1,14 +1,14 @@
 import sys
 
 from netguru import create_app
-from netguru.export import export_static
+from netguru.export import publish_hostinger_root
 
 
 def main() -> None:
     if len(sys.argv) > 1 and sys.argv[1] == "export":
-        dest = export_static()
-        print(f"Hostinger files ready: {dest}")
-        print("Upload everything inside that folder to public_html.")
+        dest = publish_hostinger_root()
+        print(f"Hostinger files ready at: {dest}")
+        print("Push this branch; Hostinger Git deploy must see index.html at the repo root.")
         return
 
     app = create_app()
