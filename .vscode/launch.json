@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Python Extension",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}/python-extension"],
+      "outFiles": ["${workspaceFolder}/python-extension/out/**/*.js"],
+      "preLaunchTask": "compile-python-extension"
+    },
+    {
+      "name": "Python: Netguru",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/python/main.py",
+      "cwd": "${workspaceFolder}/python",
+      "console": "integratedTerminal",
+      "python": "${workspaceFolder}/python/.venv/Scripts/python.exe"
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+:root {
+  --ink: #141414;
+  --paper: #f4efe6;
+  --red: #c1121f;
+  --gold: #c9a227;
+  --muted: #5c564c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", "Noto Sans Devanagari", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+a {
+  color: inherit;
+}
+
+.wrap {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(20, 20, 20, 0.94);
+  color: #fff;
+}
+
+.top-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 68px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand strong {
+  display: block;
+  font-family: Syne, sans-serif;
+  letter-spacing: 0.08em;
+  font-size: 1.05rem;
+}
+
+.brand small {
+  display: block;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: grid;
+  place-items: center;
+  font-family: Syne, sans-serif;
+  font-size: 0.75rem;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.call-btn {
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.78));
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: 72px 0 56px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Syne, sans-serif;
+}
+
+h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+}
+
+.lede {
+  max-width: 38rem;
+  font-size: 1.15rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.btn.primary {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn.ghost {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.strip {
+  background: var(--ink);
+  color: #eee;
+  padding: 16px 0;
+  font-size: 0.95rem;
+}
+
+.strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.section,
+#gallery,
+#contact,
+#services {
+  scroll-margin-top: 76px;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section-lead {
+  color: var(--muted);
+  margin-top: -8px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.cards article {
+  background: #fff;
+  padding: 20px;
+  border-top: 4px solid var(--red);
+  box-shadow: 0 8px 24px rgba(20, 20, 20, 0.06);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.gallery figure {
+  margin: 0;
+  background: #fff;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery figcaption {
+  padding: 8px 10px 12px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.contact {
+  background: #fff;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.contact-grid img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.contact a {
+  color: var(--red);
+}
+
+.hindi {
+  font-family: "Noto Sans Devanagari", sans-serif;
+  color: var(--muted);
+}
+
+footer {
+  background: var(--ink);
+  color: #bbb;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  nav {
+    display: none;
+  }
+
+  .strip-grid,
+  .cards,
+  .gallery,
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .strip-grid,
+  .cards,
+  .gallery,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img {
+    height: 260px;
+  }
+}
