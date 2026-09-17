@@ -1,12 +1,47 @@
 """Net Guru Online Services website."""
 
 from pathlib import Path
+from urllib.parse import quote
 
 from flask import Flask, render_template
 
 __version__ = "0.1.0"
 
 PACKAGE_DIR = Path(__file__).resolve().parent
+
+PHONE = "9755588862"
+WHATSAPP = "919755588862"
+
+SERVICES = [
+    {"label": "Online Form Filling"},
+    {"label": "Free Guidance for Admission"},
+    {"label": "Counselling Services"},
+    {"label": "Nursing, BPharma & Medical Registration"},
+    {"label": "Gumasta & MSME Registration"},
+    {"label": "PAN Card & Aadhaar Card"},
+    {"label": "Voter ID & Samagra ID"},
+    {"label": "Scholarship Forms"},
+    {"label": "All Government Forms"},
+    {"label": "Photocopy & Printing"},
+]
+
+COUNSELLING = [
+    "NEET UG",
+    "JEE",
+    "CLAT",
+    "CMAT",
+    "DTE",
+    "CET UG/PG",
+    "ePravesh",
+    "Nursing",
+    "AYUSH",
+    "Veterinary",
+    "BEd",
+    "DED",
+    "BA",
+    "Holkar College",
+    "Govt. College",
+]
 
 GALLERY = [
     {
@@ -30,14 +65,14 @@ GALLERY = [
         "caption": "Waiting area",
     },
     {
-        "file": "contact-window.jpg",
-        "alt": "Window with contact number, email and service rates",
-        "caption": "Contact and rates",
-    },
-    {
         "file": "entrance.jpg",
         "alt": "Entrance of Net Guru Online Services",
         "caption": "Entrance",
+    },
+    {
+        "file": "contact-window.jpg",
+        "alt": "Window with contact number, email and service rates",
+        "caption": "Contact and rates",
     },
     {
         "file": "private-desk.jpg",
@@ -52,6 +87,11 @@ GALLERY = [
 ]
 
 
+def whatsapp_link(label: str) -> str:
+    text = f"Namaste Net Guru, I need help with: {label}"
+    return f"https://wa.me/{WHATSAPP}?text={quote(text)}"
+
+
 def create_app() -> Flask:
     app = Flask(
         __name__,
@@ -61,7 +101,15 @@ def create_app() -> Flask:
 
     @app.route("/")
     def home():
-        return render_template("index.html", gallery=GALLERY)
+        services = [{**item, "href": whatsapp_link(item["label"])} for item in SERVICES]
+        return render_template(
+            "index.html",
+            gallery=GALLERY,
+            services=services,
+            counselling=COUNSELLING,
+            phone=PHONE,
+            whatsapp=f"https://wa.me/{WHATSAPP}",
+        )
 
     return app
 

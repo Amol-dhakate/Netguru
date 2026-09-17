@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Net Guru Online Services | netguruonline.com</title>
     <meta
       name="description"
-      content="MP Online authorised centre for forms, photocopies, photos, PVC cards and government services. Visit Net Guru Online Services."
+      content="20+ years in Indore. Online forms, Aadhaar, PAN, admissions counselling, government registrations, photocopy and printing. 70-71 Indrapuri Colony, Bhawarkua."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,18 +20,18 @@
     <header class="top">
       <div class="wrap top-inner">
         <a class="brand" href="#top">
-          <span class="logo-mark">NG</span>
-          <span>
-            <strong>NET GURU</strong>
-            <small>Online Services</small>
-          </span>
+          <img
+            class="brand-sign"
+            src="{{ url_for('static', filename='images/header-sign.jpg') }}"
+            alt="NET GURU Online Services"
+          />
         </a>
         <nav>
           <a href="#services">Services</a>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a class="call-btn" href="tel:9755528162">Call 97555 28162</a>
+        <a class="call-btn" href="tel:{{ phone }}">Call {{ phone }}</a>
       </div>
     </header>
 
@@ -43,88 +43,104 @@
       />
       <div class="hero-shade"></div>
       <div class="wrap hero-copy">
-        <p class="eyebrow">MP Online authorised centre · Indore</p>
+        <p class="eyebrow">20+ years of trusted service · Bhawarkua, Indore</p>
         <h1>NET GURU<br />Online Services</h1>
+        <p class="lede hindi">आपकी सुविधा, हमारा दायित्व</p>
         <p class="lede">
-          Forms, photocopies, passport photos, PVC cards and government online
-          work — done at the counter, same day.
+          Forms, Aadhaar, PAN, admissions and government work — one counter,
+          correct information, same-day help.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="https://wa.me/919755528162">WhatsApp</a>
-          <a class="btn ghost" href="mailto:indoreng@gmail.com">indoreng@gmail.com</a>
+          <a class="btn primary" href="{{ whatsapp }}">WhatsApp</a>
+          <a class="btn ghost" href="#services">View services</a>
         </div>
       </div>
     </section>
 
-    <section class="strip">
-      <div class="wrap strip-grid">
-        <p><strong>netguruonline.com</strong></p>
-        <p>Photocopy · Print · Scan</p>
-        <p>Admit card · Passport photo · PVC card</p>
-        <p>MP Online / exam forms</p>
-      </div>
-    </section>
-
-    <section class="section" id="services">
+    <section class="section services-section" id="services">
       <div class="wrap">
-        <h2>What we do at the centre</h2>
-        <p class="section-lead">Rates as displayed at the shop window.</p>
-        <div class="cards">
-          <article>
-            <h3>Documents</h3>
-            <p>Scan and email documents. Photocopy from ₹2/page. Print ₹10/page.</p>
-          </article>
-          <article>
-            <h3>Photos &amp; cards</h3>
-            <p>Passport photos, admit-card photos (₹10), PVC cards (₹70).</p>
-          </article>
-          <article>
-            <h3>Online forms</h3>
-            <p>MP Online work, exam forms (NEET, CAT and other applications) with assistance at the desk.</p>
-          </article>
-          <article>
-            <h3>Print station</h3>
-            <p>On-site printers, lamination and a dedicated assistance desk.</p>
-          </article>
+        <p class="kicker">हमारी सेवाएं</p>
+        <h2>Our services</h2>
+        <p class="section-lead">
+          Tap any icon to message us on WhatsApp about that service. Icons are
+          from our official flyer.
+        </p>
+
+        <div class="service-board">
+          <img
+            src="{{ url_for('static', filename='images/services-grid.jpg') }}"
+            alt="Net Guru services: forms, admission guidance, counselling, registrations, Aadhaar, PAN, scholarships, photocopy and printing"
+          />
+          <div class="service-hotspots">
+            {% for item in services %}
+            <a href="{{ item.href }}" target="_blank" rel="noopener" title="{{ item.label }}">
+              <span class="sr-only">{{ item.label }}</span>
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="expertise">
+          <h3>Counselling expertise</h3>
+          <ul>
+            {% for item in counselling %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </section>
 
     <section class="section gallery-section" id="gallery">
       <div class="wrap">
-        <h2>Our centre</h2>
-        <p class="section-lead">Walk-in service counters, waiting area and print station.</p>
+        <p class="kicker">हमारा केंद्र</p>
+        <h2>Gallery</h2>
+        <p class="section-lead">Shop front and photos of the centre in one place.</p>
         <div class="gallery">
           {% for item in gallery %}
-          <figure>
-            <img
-              src="{{ url_for('static', filename='images/' + item.file) }}"
-              alt="{{ item.alt }}"
-            />
-            <figcaption>{{ item.caption }}</figcaption>
-          </figure>
+          <button
+            class="gallery-item"
+            type="button"
+            data-full="{{ url_for('static', filename='images/' + item.file) }}"
+            data-caption="{{ item.caption }}"
+          >
+            <img src="{{ url_for('static', filename='images/' + item.file) }}" alt="{{ item.alt }}" />
+            <span>{{ item.caption }}</span>
+          </button>
           {% endfor %}
         </div>
       </div>
     </section>
 
+    <dialog class="lightbox" id="lightbox">
+      <img alt="" />
+      <p></p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
+
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
-          <h2>Visit or message us</h2>
+          <p class="kicker">संपर्क करें</p>
+          <h2>Visit the centre</h2>
           <p>Net Guru Online Services</p>
           <p>
-            <a href="tel:9755528162">97555 28162</a><br />
+            70–71, Indrapuri Colony, Bhawarkua,<br />
+            Indore, Madhya Pradesh
+          </p>
+          <p>
+            <a href="tel:{{ phone }}">{{ phone }}</a><br />
             <a href="mailto:indoreng@gmail.com">indoreng@gmail.com</a><br />
             <a href="https://netguruonline.com">netguruonline.com</a>
           </p>
-          <p>PhonePe / UPI: 9755528162</p>
-          <p class="hindi">फॉर्म अधूरा या त्रुटि वाला होने पर शुल्क देय होगा।</p>
+          <a class="btn primary solid" href="{{ whatsapp }}">Message on WhatsApp</a>
         </div>
-        <img
-          src="{{ url_for('static', filename='images/contact-window.jpg') }}"
-          alt="Shop window showing phone, email and service charges"
-        />
+        <ul class="why">
+          <li>20 years of experience</li>
+          <li>Correct information, student-first advice</li>
+          <li>All work under one roof</li>
+          <li>Fast and reliable counter service</li>
+        </ul>
       </div>
     </section>
 
@@ -133,5 +149,6 @@
         <p>© Net Guru Online Services · netguruonline.com</p>
       </div>
     </footer>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>

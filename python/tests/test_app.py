@@ -17,5 +17,9 @@ def test_home_page_renders_gallery() -> None:
     html = response.get_data(as_text=True)
     assert "NET GURU" in html
     assert "netguruonline.com" in html
-    assert "shop-front.jpg" in html
-    assert "97555 28162" in html
+    assert "header-sign.jpg" in html
+    assert "services-flyer.jpg" not in html
+    assert "services-grid.jpg" in html
+    assert "9755588862" in html
+    assert "Online Form Filling" in html
+    assert "wa.me/919755588862" in html

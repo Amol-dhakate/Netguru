@@ -19,7 +19,7 @@ netguru = "netguru.__main__:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-netguru = ["templates/*", "static/css/*", "static/images/*"]
+netguru = ["templates/*", "static/css/*", "static/js/*", "static/images/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
