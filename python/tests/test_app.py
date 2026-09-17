@@ -1,4 +1,7 @@
+from pathlib import Path
+
 from netguru import create_app, greet
+from netguru.export import export_static
 
 
 def test_greet_default() -> None:
@@ -23,3 +26,13 @@ def test_home_page_renders_gallery() -> None:
     assert "9755588862" in html
     assert "Online Form Filling" in html
     assert "wa.me/919755588862" in html
+
+
+def test_static_export_for_hostinger(tmp_path: Path) -> None:
+    dest = export_static(tmp_path / "public")
+    html = (dest / "index.html").read_text(encoding="utf-8")
+    assert 'href="static/css/style.css"' in html
+    assert 'src="static/images/header-sign.jpg"' in html
+    assert (dest / "static" / "images" / "header-sign.jpg").is_file()
+    assert "DirectoryIndex index.html" in (dest / ".htaccess").read_text(encoding="utf-8")
+
