@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
   </head>
-  <body data-whatsapp="{{ whatsapp_number }}">
+  <body>
     <header class="top">
       <div class="wrap top-inner">
         <a class="brand" href="#top">
@@ -28,13 +28,10 @@
         </a>
         <nav>
           <a href="#shop">Shop</a>
-          <a href="#services">Categories</a>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="cart-btn" type="button" data-open-cart>
-          Cart <span class="cart-count" data-cart-count>0</span>
-        </button>
+        <a class="call-btn" href="tel:{{ phone }}">Call {{ phone }}</a>
       </div>
     </header>
 
@@ -48,10 +45,10 @@
       <div class="wrap hero-copy">
         <p class="eyebrow">Online shop · Bhawarkua, Indore</p>
         <h1>Order services.<br />Collect at the centre.</h1>
-        <p class="lede hindi">आपकी सुविधा, हमारा दायित्व</p>
+        <p class="lede">Your convenience, our responsibility.</p>
         <p class="lede">
-          Add photocopy, cards, forms and counselling to your cart, then send
-          the order on WhatsApp.
+          Choose a service and enquire on WhatsApp. Collect and pay at the
+          centre.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#shop">Shop now</a>
@@ -62,7 +59,7 @@
 
     <section class="section shop-section" id="shop">
       <div class="wrap">
-        <p class="kicker">स्टोर</p>
+        <p class="kicker">Store</p>
         <h2>Shop services</h2>
         <p class="section-lead">
           Priced items show counter rates. Quote items are confirmed on WhatsApp.
@@ -77,50 +74,27 @@
         <div class="products" data-products>
           {% for item in products %}
           <article class="product" data-category="{{ item.category }}">
-            <img
-              src="{{ url_for('static', filename='images/' + item.image) }}"
-              alt="{{ item.name }}"
-            />
+            <div class="product-media">
+              <img
+                src="{{ url_for('static', filename='images/' + item.image) }}"
+                alt="{{ item.name }} placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>{{ item.name }}</h3>
               <p>{{ item.blurb }}</p>
               <p class="price">{{ item.price_label }}</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="{{ item.id }}"
-                data-name="{{ item.name }}"
-                data-price="{{ item.price_value }}"
+                href="{{ item.enquire_href }}"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-section" id="services">
-      <div class="wrap">
-        <p class="kicker">हमारी सेवाएं</p>
-        <h2>Shop by icon</h2>
-        <p class="section-lead">
-          Tap a flyer icon to jump to that category. Icons stay as on the official flyer.
-        </p>
-        <div class="service-board">
-          <img
-            src="{{ url_for('static', filename='images/services-grid.jpg') }}"
-            alt="Net Guru services: forms, admission guidance, counselling, registrations, Aadhaar, PAN, scholarships, photocopy and printing"
-          />
-          <div class="service-hotspots">
-            {% for item in services %}
-            <a href="#shop" data-jump="{{ item.category }}" title="{{ item.label }}">
-              <span class="sr-only">{{ item.label }}</span>
-            </a>
-            {% endfor %}
-          </div>
         </div>
         <div class="expertise">
           <h3>Counselling expertise</h3>
@@ -135,7 +109,7 @@
 
     <section class="section gallery-section" id="gallery">
       <div class="wrap">
-        <p class="kicker">हमारा केंद्र</p>
+        <p class="kicker">Our centre</p>
         <h2>Gallery</h2>
         <p class="section-lead">Shop front and photos of the centre in one place.</p>
         <div class="gallery">
@@ -160,21 +134,10 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
 
-    <aside class="cart-panel" id="cart" hidden>
-      <div class="cart-head">
-        <h2>Your cart</h2>
-        <button type="button" data-close-cart>Close</button>
-      </div>
-      <div class="cart-list" data-cart-list></div>
-      <p class="cart-total">Total (priced items): ₹<span data-cart-total>0</span></p>
-      <a class="btn primary checkout" data-checkout href="{{ whatsapp }}">Checkout on WhatsApp</a>
-    </aside>
-    <div class="cart-mask" data-close-cart hidden></div>
-
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
-          <p class="kicker">संपर्क करें</p>
+          <p class="kicker">Contact</p>
           <h2>Visit the centre</h2>
           <p>Net Guru Online Services</p>
           <p>

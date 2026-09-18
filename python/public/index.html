@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="static/css/style.css" />
   </head>
-  <body data-whatsapp="919755588862">
+  <body>
     <header class="top">
       <div class="wrap top-inner">
         <a class="brand" href="#top">
@@ -28,13 +28,10 @@
         </a>
         <nav>
           <a href="#shop">Shop</a>
-          <a href="#services">Categories</a>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
-        <button class="cart-btn" type="button" data-open-cart>
-          Cart <span class="cart-count" data-cart-count>0</span>
-        </button>
+        <a class="call-btn" href="tel:9755588862">Call 9755588862</a>
       </div>
     </header>
 
@@ -48,10 +45,10 @@
       <div class="wrap hero-copy">
         <p class="eyebrow">Online shop · Bhawarkua, Indore</p>
         <h1>Order services.<br />Collect at the centre.</h1>
-        <p class="lede hindi">आपकी सुविधा, हमारा दायित्व</p>
+        <p class="lede">Your convenience, our responsibility.</p>
         <p class="lede">
-          Add photocopy, cards, forms and counselling to your cart, then send
-          the order on WhatsApp.
+          Choose a service and enquire on WhatsApp. Collect and pay at the
+          centre.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="#shop">Shop now</a>
@@ -62,7 +59,7 @@
 
     <section class="section shop-section" id="shop">
       <div class="wrap">
-        <p class="kicker">स्टोर</p>
+        <p class="kicker">Store</p>
         <h2>Shop services</h2>
         <p class="section-lead">
           Priced items show counter rates. Quote items are confirmed on WhatsApp.
@@ -93,394 +90,335 @@
         <div class="products" data-products>
           
           <article class="product" data-category="print">
-            <img
-              src="static/images/print-station.jpg"
-              alt="Photocopy"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-photocopy.png"
+                alt="Photocopy placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Photocopy</h3>
               <p>Black &amp; white copies at the counter.</p>
               <p class="price">₹2 per page</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="photocopy"
-                data-name="Photocopy"
-                data-price="2"
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Photocopy"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="print">
-            <img
-              src="static/images/workspace.jpg"
-              alt="Colour / document print"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-printout.png"
+                alt="Colour / document print placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Colour / document print</h3>
               <p>Print forms, notes and documents.</p>
               <p class="price">₹10 per page</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="printout"
-                data-name="Colour / document print"
-                data-price="10"
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Colour%20/%20document%20print"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="print">
-            <img
-              src="static/images/private-desk.jpg"
-              alt="Admit-card photo"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-admit-photo.png"
+                alt="Admit-card photo placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Admit-card photo</h3>
               <p>Exam and admit-card size photos.</p>
               <p class="price">₹10 each</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="admit-photo"
-                data-name="Admit-card photo"
-                data-price="10"
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Admit-card%20photo"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="ids">
-            <img
-              src="static/images/contact-window.jpg"
-              alt="PVC card"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-pvc-card.png"
+                alt="PVC card placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>PVC card</h3>
               <p>Printed PVC identity cards.</p>
               <p class="price">₹70 each</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="pvc-card"
-                data-name="PVC card"
-                data-price="70"
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20PVC%20card"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="print">
-            <img
-              src="static/images/counters.jpg"
-              alt="Passport photo"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-passport-photo.png"
+                alt="Passport photo placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Passport photo</h3>
               <p>Passport-size photos, same day.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="passport-photo"
-                data-name="Passport photo"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Passport%20photo"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="print">
-            <img
-              src="static/images/workspace.jpg"
-              alt="Document scan &amp; email"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-scan-email.png"
+                alt="Document scan &amp; email placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Document scan &amp; email</h3>
               <p>Scan papers and send them by email.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="scan-email"
-                data-name="Document scan &amp; email"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Document%20scan%20%26%20email"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="forms">
-            <img
-              src="static/images/workspace.jpg"
-              alt="Online form filling"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-online-form.png"
+                alt="Online form filling placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Online form filling</h3>
               <p>We fill and submit your online form.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="online-form"
-                data-name="Online form filling"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Online%20form%20filling"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="forms">
-            <img
-              src="static/images/shop-front.jpg"
-              alt="All government forms"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-govt-forms.png"
+                alt="All government forms placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>All government forms</h3>
               <p>MP Online and other govt applications.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="govt-forms"
-                data-name="All government forms"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20All%20government%20forms"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="forms">
-            <img
-              src="static/images/waiting-area.jpg"
-              alt="Scholarship forms"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-scholarship.png"
+                alt="Scholarship forms placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Scholarship forms</h3>
               <p>Scholarship and student aid forms.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="scholarship"
-                data-name="Scholarship forms"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Scholarship%20forms"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="forms">
-            <img
-              src="static/images/counters.jpg"
-              alt="Gumasta / MSME registration"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-gumasta-msme.png"
+                alt="Gumasta / MSME registration placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Gumasta / MSME registration</h3>
               <p>Shop licence and MSME paperwork.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="gumasta-msme"
-                data-name="Gumasta / MSME registration"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Gumasta%20/%20MSME%20registration"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="forms">
-            <img
-              src="static/images/private-desk.jpg"
-              alt="Nursing / BPharma registration"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-medical-reg.png"
+                alt="Nursing / BPharma registration placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Nursing / BPharma registration</h3>
               <p>Medical and pharmacy registrations.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="medical-reg"
-                data-name="Nursing / BPharma registration"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Nursing%20/%20BPharma%20registration"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="ids">
-            <img
-              src="static/images/contact-window.jpg"
-              alt="PAN &amp; Aadhaar services"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-pan-aadhaar.png"
+                alt="PAN &amp; Aadhaar services placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>PAN &amp; Aadhaar services</h3>
               <p>PAN, Aadhaar update and related work.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="pan-aadhaar"
-                data-name="PAN &amp; Aadhaar services"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20PAN%20%26%20Aadhaar%20services"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="ids">
-            <img
-              src="static/images/entrance.jpg"
-              alt="Voter ID &amp; Samagra ID"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-voter-samagra.png"
+                alt="Voter ID &amp; Samagra ID placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Voter ID &amp; Samagra ID</h3>
               <p>Voter card and Samagra ID help.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="voter-samagra"
-                data-name="Voter ID &amp; Samagra ID"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Voter%20ID%20%26%20Samagra%20ID"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="counselling">
-            <img
-              src="static/images/waiting-area.jpg"
-              alt="Admission counselling"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-counselling.png"
+                alt="Admission counselling placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Admission counselling</h3>
               <p>Free guidance for college admissions.</p>
               <p class="price">Free guidance</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="counselling"
-                data-name="Admission counselling"
-                data-price="0"
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Admission%20counselling"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
           <article class="product" data-category="counselling">
-            <img
-              src="static/images/counters.jpg"
-              alt="Exam counselling (NEET, JEE, CLAT…)"
-            />
+            <div class="product-media">
+              <img
+                src="static/images/shop-exam-counselling.png"
+                alt="Exam counselling (NEET, JEE, CLAT…) placeholder"
+              />
+            </div>
             <div class="product-body">
               <h3>Exam counselling (NEET, JEE, CLAT…)</h3>
               <p>NEET, JEE, CLAT, CET, ePravesh and more.</p>
               <p class="price">Get quote</p>
-              <button
+              <a
                 class="btn primary add-btn"
-                type="button"
-                data-add
-                data-id="exam-counselling"
-                data-name="Exam counselling (NEET, JEE, CLAT…)"
-                data-price=""
+                href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Exam%20counselling%20%28NEET%2C%20JEE%2C%20CLAT%E2%80%A6%29"
+                target="_blank"
+                rel="noopener"
               >
-                Add to cart
-              </button>
+                Enquire on WhatsApp
+              </a>
             </div>
           </article>
           
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-section" id="services">
-      <div class="wrap">
-        <p class="kicker">हमारी सेवाएं</p>
-        <h2>Shop by icon</h2>
-        <p class="section-lead">
-          Tap a flyer icon to jump to that category. Icons stay as on the official flyer.
-        </p>
-        <div class="service-board">
-          <img
-            src="static/images/services-grid.jpg"
-            alt="Net Guru services: forms, admission guidance, counselling, registrations, Aadhaar, PAN, scholarships, photocopy and printing"
-          />
-          <div class="service-hotspots">
-            
-            <a href="#shop" data-jump="forms" title="Online Form Filling">
-              <span class="sr-only">Online Form Filling</span>
-            </a>
-            
-            <a href="#shop" data-jump="counselling" title="Free Guidance for Admission">
-              <span class="sr-only">Free Guidance for Admission</span>
-            </a>
-            
-            <a href="#shop" data-jump="counselling" title="Counselling Services">
-              <span class="sr-only">Counselling Services</span>
-            </a>
-            
-            <a href="#shop" data-jump="forms" title="Nursing, BPharma &amp; Medical Registration">
-              <span class="sr-only">Nursing, BPharma &amp; Medical Registration</span>
-            </a>
-            
-            <a href="#shop" data-jump="forms" title="Gumasta &amp; MSME Registration">
-              <span class="sr-only">Gumasta &amp; MSME Registration</span>
-            </a>
-            
-            <a href="#shop" data-jump="ids" title="PAN Card &amp; Aadhaar Card">
-              <span class="sr-only">PAN Card &amp; Aadhaar Card</span>
-            </a>
-            
-            <a href="#shop" data-jump="ids" title="Voter ID &amp; Samagra ID">
-              <span class="sr-only">Voter ID &amp; Samagra ID</span>
-            </a>
-            
-            <a href="#shop" data-jump="forms" title="Scholarship Forms">
-              <span class="sr-only">Scholarship Forms</span>
-            </a>
-            
-            <a href="#shop" data-jump="forms" title="All Government Forms">
-              <span class="sr-only">All Government Forms</span>
-            </a>
-            
-            <a href="#shop" data-jump="print" title="Photocopy &amp; Printing">
-              <span class="sr-only">Photocopy &amp; Printing</span>
-            </a>
-            
-          </div>
         </div>
         <div class="expertise">
           <h3>Counselling expertise</h3>
@@ -523,7 +461,7 @@
 
     <section class="section gallery-section" id="gallery">
       <div class="wrap">
-        <p class="kicker">हमारा केंद्र</p>
+        <p class="kicker">Our centre</p>
         <h2>Gallery</h2>
         <p class="section-lead">Shop front and photos of the centre in one place.</p>
         <div class="gallery">
@@ -618,21 +556,10 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
 
-    <aside class="cart-panel" id="cart" hidden>
-      <div class="cart-head">
-        <h2>Your cart</h2>
-        <button type="button" data-close-cart>Close</button>
-      </div>
-      <div class="cart-list" data-cart-list></div>
-      <p class="cart-total">Total (priced items): ₹<span data-cart-total>0</span></p>
-      <a class="btn primary checkout" data-checkout href="https://wa.me/919755588862">Checkout on WhatsApp</a>
-    </aside>
-    <div class="cart-mask" data-close-cart hidden></div>
-
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
-          <p class="kicker">संपर्क करें</p>
+          <p class="kicker">Contact</p>
           <h2>Visit the centre</h2>
           <p>Net Guru Online Services</p>
           <p>

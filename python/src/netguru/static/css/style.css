@@ -19,7 +19,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Source Sans 3", "Noto Sans Devanagari", sans-serif;
+  font-family: "Source Sans 3", sans-serif;
   color: var(--ink);
   background: var(--paper);
 }
@@ -86,8 +86,7 @@ nav a {
   font-size: 0.95rem;
 }
 
-.call-btn,
-.cart-btn {
+.call-btn {
   background: var(--orange);
   color: #fff;
   text-decoration: none;
@@ -95,21 +94,6 @@ nav a {
   border-radius: 999px;
   font-weight: 700;
   white-space: nowrap;
-  border: 0;
-  cursor: pointer;
-  font: inherit;
-}
-
-.cart-count {
-  display: inline-grid;
-  place-items: center;
-  min-width: 1.3rem;
-  height: 1.3rem;
-  margin-left: 4px;
-  border-radius: 999px;
-  background: #fff;
-  color: var(--navy);
-  font-size: 0.75rem;
 }
 
 .hero {
@@ -204,7 +188,6 @@ h2 {
 .section,
 #gallery,
 #contact,
-#services,
 #shop {
   scroll-margin-top: 76px;
 }
@@ -255,10 +238,17 @@ h2 {
   flex-direction: column;
 }
 
-.product img {
+.product-media {
+  height: 168px;
+  background: #e8eef8;
+  overflow: hidden;
+}
+
+.product-media img {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .product-body {
@@ -295,70 +285,6 @@ h2 {
 
 .product.is-hidden {
   display: none;
-}
-
-.cart-panel[hidden],
-.cart-mask[hidden] {
-  display: none !important;
-}
-
-.cart-mask {
-  position: fixed;
-  inset: 0;
-  background: rgba(7, 24, 51, 0.45);
-  z-index: 20;
-}
-
-.cart-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 21;
-  width: min(400px, 100vw);
-  height: 100%;
-  background: #fff;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: -12px 0 40px rgba(7, 24, 51, 0.2);
-}
-
-.cart-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cart-head button,
-.cart-line button {
-  border: 1px solid var(--line);
-  background: #fff;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-
-.cart-list {
-  flex: 1;
-  overflow: auto;
-}
-
-.cart-line {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 8px;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.cart-total {
-  font-weight: 700;
-}
-
-.checkout {
-  text-align: center;
 }
 
 .shop-section {
@@ -519,10 +445,6 @@ h2 {
 .why li {
   padding: 14px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.hindi {
-  font-family: "Noto Sans Devanagari", sans-serif;
 }
 
 footer {
