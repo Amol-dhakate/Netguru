@@ -445,6 +445,9 @@ function setComposer(step) {
   if (chatSuggest) {
     chatSuggest.hidden = step !== "query" && step !== "assist";
   }
+  chatTypes?.querySelectorAll("[data-type]").forEach((button) => {
+    button.classList.toggle("is-on", step === "enquiry_type" && button.dataset.type === answers.enquiry_type);
+  });
   updateSendButton();
 }
 
@@ -466,10 +469,6 @@ function askStep(step) {
 }
 
 function afterMobile() {
-  if (answers.enquiry_type) {
-    askStep("query");
-    return;
-  }
   askStep("enquiry_type");
 }
 
@@ -603,6 +602,9 @@ chatInput?.addEventListener("input", updateSendButton);
 
 chatTypes?.querySelectorAll("[data-type]").forEach((button) => {
   button.addEventListener("click", () => {
+    if (chatStep !== "enquiry_type") {
+      return;
+    }
     const value = button.dataset.type || "";
     answers.enquiry_type = value;
     setHidden("enquiry_type", value);
