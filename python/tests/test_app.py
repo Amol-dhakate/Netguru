@@ -18,9 +18,10 @@ def test_home_page_renders_gallery() -> None:
     response = client.get("/")
     assert response.status_code == 200
     html = response.get_data(as_text=True)
-    assert "NET GURU" in html
+    assert "Net Guru" in html
     assert "netguruonline.com" in html
-    assert "header-sign.jpg" in html
+    assert "netguru-logo.jpg" in html
+    assert "header-sign.jpg" not in html
     assert "Shop by icon" not in html
     assert "services-grid.jpg" not in html
     assert "shop-photocopy.png" in html
@@ -30,6 +31,16 @@ def test_home_page_renders_gallery() -> None:
     assert "Our Services" in html
     assert "Shop services" not in html
     assert "Enquire on WhatsApp" in html
+    assert "Message on WhatsApp" not in html
+    assert "Shop now" not in html
+    assert "WhatsApp chat assistant" in html
+    assert 'name="first_name"' in html
+    assert 'name="last_name"' in html
+    assert 'name="mobile"' in html
+    assert 'name="enquiry_type"' in html
+    assert "Enquiry type" not in html
+    assert "Enquiry time" not in html
+    assert 'id="enquire-form"' in html
     assert "Add to cart" not in html
     assert 'href="https://wa.me/919755588862?text=' in html
     assert "data-open-cart" not in html
@@ -37,15 +48,19 @@ def test_home_page_renders_gallery() -> None:
     assert "class=\"price\"" not in html
     assert "₹2 per page" not in html
     assert "₹10 per page" not in html
-    assert "₹70 each" not in html
+    assert "shop-front.jpg" in html
+    assert "counters.jpg" in html
+    assert "data-hero-slider" in html
+    assert 'id="gallery"' not in html
+    assert "<h2>Gallery</h2>" not in html
 
 
 def test_static_export_for_hostinger(tmp_path: Path) -> None:
     dest = export_static(tmp_path / "public")
     html = (dest / "index.html").read_text(encoding="utf-8")
     assert 'href="static/css/style.css"' in html
-    assert 'src="static/images/header-sign.jpg"' in html
-    assert (dest / "static" / "images" / "header-sign.jpg").is_file()
+    assert 'src="static/images/netguru-logo.jpg"' in html
+    assert (dest / "static" / "images" / "netguru-logo.jpg").is_file()
     assert (dest / "static" / "images" / "shop-photocopy.png").is_file()
     assert "DirectoryIndex index.html" in (dest / ".htaccess").read_text(encoding="utf-8")
 

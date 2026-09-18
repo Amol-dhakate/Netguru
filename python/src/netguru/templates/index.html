@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
@@ -21,14 +21,14 @@
       <div class="wrap top-inner">
         <a class="brand" href="#top">
           <img
-            class="brand-sign"
-            src="{{ url_for('static', filename='images/header-sign.jpg') }}"
-            alt="NET GURU Online Services"
+            class="brand-logo"
+            src="{{ url_for('static', filename='images/netguru-logo.jpg') }}"
+            alt=""
           />
+          <span class="brand-name">Net Guru</span>
         </a>
         <nav>
           <a href="#shop">Shop</a>
-          <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
         <a class="call-btn" href="tel:{{ phone }}">Call {{ phone }}</a>
@@ -36,11 +36,15 @@
     </header>
 
     <section class="hero" id="top">
-      <img
-        class="hero-photo"
-        src="{{ url_for('static', filename='images/shop-front.jpg') }}"
-        alt="Net Guru Online Services shop board and entrance"
-      />
+      <div class="hero-slides" data-hero-slider>
+        {% for item in gallery %}
+        <img
+          class="hero-slide{% if loop.first %} is-on{% endif %}"
+          src="{{ url_for('static', filename='images/' + item.file) }}"
+          alt="{{ item.alt }}"
+        />
+        {% endfor %}
+      </div>
       <div class="hero-shade"></div>
       <div class="wrap hero-copy">
         <p class="eyebrow">Online shop · Bhawarkua, Indore</p>
@@ -51,9 +55,30 @@
           centre.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="#shop">Shop now</a>
+          <a
+            class="btn primary"
+            href="{{ whatsapp }}"
+            data-enquire
+          >Enquire on WhatsApp</a>
           <a class="btn ghost" href="tel:{{ phone }}">Call {{ phone }}</a>
         </div>
+      </div>
+      <button class="hero-ctrl prev" type="button" data-hero-prev aria-label="Previous photo">
+        ‹
+      </button>
+      <button class="hero-ctrl next" type="button" data-hero-next aria-label="Next photo">
+        ›
+      </button>
+      <div class="hero-dots" data-hero-dots>
+        {% for item in gallery %}
+        <button
+          type="button"
+          data-hero-dot="{{ loop.index0 }}"
+          class="{% if loop.first %}is-on{% endif %}"
+          aria-label="{{ item.caption }}"
+          {% if loop.first %}aria-current="true"{% endif %}
+        ></button>
+        {% endfor %}
       </div>
     </section>
 
@@ -85,8 +110,9 @@
               <a
                 class="btn primary add-btn"
                 href="{{ item.enquire_href }}"
-                target="_blank"
-                rel="noopener"
+                data-enquire
+                data-service="{{ item.name }}"
+                data-category="{{ item.category }}"
               >
                 Enquire on WhatsApp
               </a>
@@ -105,33 +131,6 @@
       </div>
     </section>
 
-    <section class="section gallery-section" id="gallery">
-      <div class="wrap">
-        <p class="kicker">Our centre</p>
-        <h2>Gallery</h2>
-        <p class="section-lead">Shop front and photos of the centre in one place.</p>
-        <div class="gallery">
-          {% for item in gallery %}
-          <button
-            class="gallery-item"
-            type="button"
-            data-full="{{ url_for('static', filename='images/' + item.file) }}"
-            data-caption="{{ item.caption }}"
-          >
-            <img src="{{ url_for('static', filename='images/' + item.file) }}" alt="{{ item.alt }}" />
-            <span>{{ item.caption }}</span>
-          </button>
-          {% endfor %}
-        </div>
-      </div>
-    </section>
-
-    <dialog class="lightbox" id="lightbox">
-      <img alt="" />
-      <p></p>
-      <form method="dialog"><button type="submit">Close</button></form>
-    </dialog>
-
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
@@ -147,7 +146,7 @@
             <a href="mailto:indoreng@gmail.com">indoreng@gmail.com</a><br />
             <a href="https://netguruonline.com">netguruonline.com</a>
           </p>
-          <a class="btn primary solid" href="{{ whatsapp }}">Message on WhatsApp</a>
+          <a class="btn primary solid" href="{{ whatsapp }}" data-enquire>Enquire on WhatsApp</a>
         </div>
         <ul class="why">
           <li>20 years of experience</li>
@@ -163,6 +162,39 @@
         <p>© Net Guru Online Services · netguruonline.com</p>
       </div>
     </footer>
+    <dialog class="wa-chat" id="enquire" aria-labelledby="enquire-title">
+      <div class="wa-head">
+        <img src="{{ url_for('static', filename='images/netguru-logo.jpg') }}" alt="" />
+        <div>
+          <h2 id="enquire-title">Net Guru</h2>
+          <p>WhatsApp chat assistant</p>
+        </div>
+        <button type="button" data-enquire-close aria-label="Close chat">×</button>
+      </div>
+      <div class="wa-log" data-chat-log></div>
+      <form class="wa-composer" id="enquire-form">
+        <input name="first_name" type="hidden" />
+        <input name="last_name" type="hidden" />
+        <input name="mobile" type="hidden" />
+        <input name="enquiry_type" type="hidden" />
+        <div class="wa-types" data-chat-types hidden>
+          <button type="button" data-type="Print &amp; copy">Print &amp; copy</button>
+          <button type="button" data-type="IDs &amp; cards">IDs &amp; cards</button>
+          <button type="button" data-type="Forms">Forms</button>
+          <button type="button" data-type="Counselling">Counselling</button>
+          <button type="button" data-type="Other">Other</button>
+        </div>
+        <div class="wa-row">
+          <input
+            data-chat-input
+            type="text"
+            autocomplete="off"
+            placeholder="Type a message"
+          />
+          <button class="wa-send" type="submit">Send</button>
+        </div>
+      </form>
+    </dialog>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>
