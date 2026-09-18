@@ -17,8 +17,6 @@ PRODUCTS = [
         "id": "photocopy",
         "name": "Photocopy",
         "category": "print",
-        "price": 2,
-        "unit": "per page",
         "icon": "copy",
         "image": "shop-photocopy.png",
         "blurb": "Black & white copies at the counter.",
@@ -27,8 +25,6 @@ PRODUCTS = [
         "id": "printout",
         "name": "Colour / document print",
         "category": "print",
-        "price": 10,
-        "unit": "per page",
         "icon": "printer",
         "image": "shop-printout.png",
         "blurb": "Print forms, notes and documents.",
@@ -37,8 +33,6 @@ PRODUCTS = [
         "id": "admit-photo",
         "name": "Admit-card photo",
         "category": "print",
-        "price": 10,
-        "unit": "each",
         "icon": "camera",
         "image": "shop-admit-photo.png",
         "blurb": "Exam and admit-card size photos.",
@@ -47,8 +41,6 @@ PRODUCTS = [
         "id": "pvc-card",
         "name": "PVC card",
         "category": "ids",
-        "price": 70,
-        "unit": "each",
         "icon": "id-card",
         "image": "shop-pvc-card.png",
         "blurb": "Printed PVC identity cards.",
@@ -57,8 +49,6 @@ PRODUCTS = [
         "id": "passport-photo",
         "name": "Passport photo",
         "category": "print",
-        "price": None,
-        "unit": "",
         "icon": "camera",
         "image": "shop-passport-photo.png",
         "blurb": "Passport-size photos, same day.",
@@ -67,8 +57,6 @@ PRODUCTS = [
         "id": "scan-email",
         "name": "Document scan & email",
         "category": "print",
-        "price": None,
-        "unit": "",
         "icon": "scan",
         "image": "shop-scan-email.png",
         "blurb": "Scan papers and send them by email.",
@@ -77,8 +65,6 @@ PRODUCTS = [
         "id": "online-form",
         "name": "Online form filling",
         "category": "forms",
-        "price": None,
-        "unit": "",
         "icon": "monitor",
         "image": "shop-online-form.png",
         "blurb": "We fill and submit your online form.",
@@ -87,8 +73,6 @@ PRODUCTS = [
         "id": "govt-forms",
         "name": "All government forms",
         "category": "forms",
-        "price": None,
-        "unit": "",
         "icon": "building",
         "image": "shop-govt-forms.png",
         "blurb": "MP Online and other govt applications.",
@@ -97,8 +81,6 @@ PRODUCTS = [
         "id": "scholarship",
         "name": "Scholarship forms",
         "category": "forms",
-        "price": None,
-        "unit": "",
         "icon": "cap",
         "image": "shop-scholarship.png",
         "blurb": "Scholarship and student aid forms.",
@@ -107,8 +89,6 @@ PRODUCTS = [
         "id": "gumasta-msme",
         "name": "Gumasta / MSME registration",
         "category": "forms",
-        "price": None,
-        "unit": "",
         "icon": "clipboard",
         "image": "shop-gumasta-msme.png",
         "blurb": "Shop licence and MSME paperwork.",
@@ -117,8 +97,6 @@ PRODUCTS = [
         "id": "medical-reg",
         "name": "Nursing / BPharma registration",
         "category": "forms",
-        "price": None,
-        "unit": "",
         "icon": "medical",
         "image": "shop-medical-reg.png",
         "blurb": "Medical and pharmacy registrations.",
@@ -127,8 +105,6 @@ PRODUCTS = [
         "id": "pan-aadhaar",
         "name": "PAN & Aadhaar services",
         "category": "ids",
-        "price": None,
-        "unit": "",
         "icon": "id-card",
         "image": "shop-pan-aadhaar.png",
         "blurb": "PAN, Aadhaar update and related work.",
@@ -137,8 +113,6 @@ PRODUCTS = [
         "id": "voter-samagra",
         "name": "Voter ID & Samagra ID",
         "category": "ids",
-        "price": None,
-        "unit": "",
         "icon": "id-card",
         "image": "shop-voter-samagra.png",
         "blurb": "Voter card and Samagra ID help.",
@@ -147,8 +121,6 @@ PRODUCTS = [
         "id": "counselling",
         "name": "Admission counselling",
         "category": "counselling",
-        "price": 0,
-        "unit": "guidance",
         "icon": "users",
         "image": "shop-counselling.png",
         "blurb": "Free guidance for college admissions.",
@@ -157,8 +129,6 @@ PRODUCTS = [
         "id": "exam-counselling",
         "name": "Exam counselling (NEET, JEE, CLAT…)",
         "category": "counselling",
-        "price": None,
-        "unit": "",
         "icon": "book",
         "image": "shop-exam-counselling.png",
         "blurb": "NEET, JEE, CLAT, CET, ePravesh and more.",
@@ -235,15 +205,6 @@ GALLERY = [
 ]
 
 
-def price_label(product: dict) -> str:
-    if product["price"] is None:
-        return "Get quote"
-    if product["price"] == 0:
-        return "Free guidance"
-    extra = f" {product['unit']}" if product["unit"] else ""
-    return f"₹{product['price']}{extra}"
-
-
 def create_app() -> Flask:
     app = Flask(
         __name__,
@@ -256,7 +217,6 @@ def create_app() -> Flask:
         products = [
             {
                 **item,
-                "price_label": price_label(item),
                 "enquire_href": (
                     "https://wa.me/"
                     + WHATSAPP

@@ -61,7 +61,7 @@
       <div class="wrap">
         <h2>Our Services</h2>
         <p class="section-lead">
-          Priced items show counter rates. Quote items are confirmed on WhatsApp.
+          Choose a service and enquire on WhatsApp. Collect and pay at the centre.
         </p>
         <div class="filters" data-filters>
           {% for cat in categories %}
@@ -82,7 +82,6 @@
             <div class="product-body">
               <h3>{{ item.name }}</h3>
               <p>{{ item.blurb }}</p>
-              <p class="price">{{ item.price_label }}</p>
               <a
                 class="btn primary add-btn"
                 href="{{ item.enquire_href }}"

@@ -31,9 +31,13 @@ def test_home_page_renders_gallery() -> None:
     assert "Shop services" not in html
     assert "Enquire on WhatsApp" in html
     assert "Add to cart" not in html
-    assert "wa.me/919755588862?text=" in html
+    assert 'href="https://wa.me/919755588862?text=' in html
     assert "data-open-cart" not in html
     assert "Photocopy" in html
+    assert "class=\"price\"" not in html
+    assert "₹2 per page" not in html
+    assert "₹10 per page" not in html
+    assert "₹70 each" not in html
 
 
 def test_static_export_for_hostinger(tmp_path: Path) -> None:
