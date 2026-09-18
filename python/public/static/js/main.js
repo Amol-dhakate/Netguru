@@ -2,6 +2,7 @@ const LANG_KEY = "netguru-lang";
 const I18N = {
   en: {
     "nav.shop": "Shop",
+    "nav.offers": "Offers",
     "nav.contact": "Contact",
     call: "Call",
     enquire: "Enquire on WhatsApp",
@@ -100,9 +101,27 @@ const I18N = {
     "product.counselling.blurb": "Free guidance for college admissions.",
     "product.exam-counselling.name": "Exam counselling (NEET, JEE, CLAT…)",
     "product.exam-counselling.blurb": "NEET, JEE, CLAT, CET, ePravesh and more.",
+    "cookie.text": "We use cookies to remember your language and to improve the site. Necessary cookies keep the site working. Accept all cookies if you are happy with optional cookies too.",
+    "cookie.accept": "Accept all cookies",
+    "cookie.necessary": "Necessary only",
+    "cookie.manage": "Cookies",
+    "ads.badge": "Ad",
+    "ads.kicker": "Marketing",
+    "ads.title": "Offers at the centre",
+    "ads.lead": "Current ads from Net Guru. Enquire on WhatsApp and collect at the shop.",
+    "ads.strip": "Free admission counselling · Same-day passport photos · PAN, Aadhaar and government forms in Bhawarkua, Indore.",
+    "ads.counsel.title": "Free NEET, JEE & CLAT counselling",
+    "ads.counsel.text": "Get admission guidance at the centre. Bring marksheets. No online payment.",
+    "ads.photo.title": "Same-day passport & admit-card photos",
+    "ads.photo.text": "Photos and PVC cards printed at the counter. Walk in or enquire first.",
+    "ads.forms.title": "PAN, Aadhaar and government forms",
+    "ads.forms.text": "MP Online, scholarship, Gumasta/MSME and ID work under one roof.",
+    "ads.later": "Maybe later",
+    "ads.close": "Close ad",
   },
   hi: {
     "nav.shop": "दुकान",
+    "nav.offers": "ऑफर",
     "nav.contact": "संपर्क",
     call: "कॉल",
     enquire: "व्हाट्सऐप पर पूछताछ",
@@ -201,6 +220,23 @@ const I18N = {
     "product.counselling.blurb": "कॉलेज प्रवेश के लिए मुफ्त मार्गदर्शन।",
     "product.exam-counselling.name": "परीक्षा परामर्श (NEET, JEE, CLAT…)",
     "product.exam-counselling.blurb": "NEET, JEE, CLAT, CET, ePravesh और अन्य।",
+    "cookie.text": "हम आपकी भाषा याद रखने और साइट बेहतर बनाने के लिए कुकीज़ का उपयोग करते हैं। जरूरी कुकीज़ साइट चलाती हैं। अगर आप वैकल्पिक कुकीज़ से सहमत हैं तो सभी कुकीज़ स्वीकार करें।",
+    "cookie.accept": "सभी कुकीज़ स्वीकार करें",
+    "cookie.necessary": "केवल जरूरी",
+    "cookie.manage": "कुकीज़",
+    "ads.badge": "विज्ञापन",
+    "ads.kicker": "मार्केटिंग",
+    "ads.title": "केंद्र पर ऑफर",
+    "ads.lead": "नेट गुरु के मौजूदा विज्ञापन। व्हाट्सऐप पर पूछताछ करें और दुकान पर काम लें।",
+    "ads.strip": "मुफ्त प्रवेश परामर्श · उसी दिन पासपोर्ट फोटो · पैन, आधार और सरकारी फॉर्म, भावरकुआ, इंदौर।",
+    "ads.counsel.title": "मुफ्त NEET, JEE और CLAT परामर्श",
+    "ads.counsel.text": "केंद्र पर प्रवेश मार्गदर्शन लें। मार्कशीट लाएँ। ऑनलाइन भुगतान नहीं।",
+    "ads.photo.title": "उसी दिन पासपोर्ट और एडमिट-कार्ड फोटो",
+    "ads.photo.text": "फोटो और पीवीसी कार्ड काउंटर पर। आकर या पहले पूछताछ करके करवाएँ।",
+    "ads.forms.title": "पैन, आधार और सरकारी फॉर्म",
+    "ads.forms.text": "एमपी ऑनलाइन, छात्रवृत्ति, गुमास्ता/MSME और आईडी काम एक ही छत के नीचे।",
+    "ads.later": "बाद में",
+    "ads.close": "विज्ञापन बंद करें",
   },
 };
 
@@ -493,6 +529,7 @@ function acceptAnswer(value) {
 }
 
 function openEnquire(service, category, productId) {
+  hideAdPopup(true);
   enquireTopic = productId ? t(`product.${productId}.name`) : service || "";
   answers = {};
   whatsappOpened = false;
@@ -566,3 +603,82 @@ chatSuggest?.querySelectorAll("[data-suggest]").forEach((button) => {
     handleQuery(labels[topic] || topic);
   });
 });
+
+const COOKIE_KEY = "netguru-cookies";
+const cookieBar = document.querySelector("[data-cookie-bar]");
+
+function showCookieBar(show) {
+  if (!cookieBar) {
+    return;
+  }
+  cookieBar.hidden = !show;
+  document.body.classList.toggle("has-cookie-bar", show);
+}
+
+function saveCookies(choice) {
+  localStorage.setItem(COOKIE_KEY, choice === "all" ? "all" : "necessary");
+  showCookieBar(false);
+  scheduleAdPopup(6000);
+}
+
+if (!localStorage.getItem(COOKIE_KEY)) {
+  showCookieBar(true);
+}
+
+cookieBar?.querySelectorAll("[data-cookie]").forEach((button) => {
+  button.addEventListener("click", () => saveCookies(button.dataset.cookie));
+});
+
+document.querySelector("[data-cookie-open]")?.addEventListener("click", () => {
+  showCookieBar(true);
+  hideAdPopup(false);
+});
+
+const AD_KEY = "netguru-ad-at";
+const AD_WAIT = 24 * 60 * 60 * 1000;
+const adPopup = document.querySelector("[data-ad-popup]");
+const adSlides = [...document.querySelectorAll("[data-ad-slide]")];
+let adTimer;
+
+function adDismissedRecently() {
+  const at = Number(localStorage.getItem(AD_KEY) || 0);
+  return Date.now() - at < AD_WAIT;
+}
+
+function hideAdPopup(remember) {
+  if (!adPopup) {
+    return;
+  }
+  adPopup.hidden = true;
+  adPopup.classList.remove("is-open");
+  if (remember) {
+    localStorage.setItem(AD_KEY, String(Date.now()));
+  }
+}
+
+function showAdPopup() {
+  if (!adPopup || adDismissedRecently() || enquireDialog?.open || (cookieBar && !cookieBar.hidden)) {
+    return;
+  }
+  if (adSlides.length) {
+    const pick = Math.floor(Date.now() / AD_WAIT) % adSlides.length;
+    adSlides.forEach((slide, n) => slide.classList.toggle("is-on", n === pick));
+  }
+  adPopup.hidden = false;
+  adPopup.classList.add("is-open");
+}
+
+function scheduleAdPopup(delay) {
+  window.clearTimeout(adTimer);
+  if (adDismissedRecently()) {
+    return;
+  }
+  adTimer = window.setTimeout(showAdPopup, delay);
+}
+
+document.querySelector("[data-ad-close]")?.addEventListener("click", () => hideAdPopup(true));
+document.querySelector("[data-ad-later]")?.addEventListener("click", () => hideAdPopup(true));
+
+if (localStorage.getItem(COOKIE_KEY)) {
+  scheduleAdPopup(10000);
+}
