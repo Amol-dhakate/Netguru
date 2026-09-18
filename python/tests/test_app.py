@@ -64,6 +64,8 @@ def test_home_page_renders_gallery() -> None:
     assert "data-cookie-bar" in html
     assert "data-ad-popup" in html
     assert "Maybe later" in html
+    assert "wa-send" in html
+    assert "disabled" in html
 
 
 def test_static_export_for_hostinger(tmp_path: Path) -> None:
