@@ -27,7 +27,8 @@ def test_home_page_renders_gallery() -> None:
     assert "shop-exam-counselling.png" in html
     assert "placeholder" in html
     assert "9755588862" in html
-    assert "Shop services" in html
+    assert "Our Services" in html
+    assert "Shop services" not in html
     assert "Enquire on WhatsApp" in html
     assert "Add to cart" not in html
     assert "wa.me/919755588862?text=" in html
