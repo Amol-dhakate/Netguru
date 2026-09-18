@@ -351,6 +351,7 @@ const enquireDialog = document.querySelector("#enquire");
 const enquireForm = document.querySelector("#enquire-form");
 const chatLog = document.querySelector("[data-chat-log]");
 const chatInput = document.querySelector("[data-chat-input]");
+const chatSend = document.querySelector(".wa-send");
 const chatTypes = document.querySelector("[data-chat-types]");
 const chatSuggest = document.querySelector("[data-chat-suggest]");
 const whatsappNumber = "919755588862";
@@ -402,6 +403,26 @@ function replyForQuery(text) {
   return t(match ? match.answer : "faq.default");
 }
 
+function sendIsReady() {
+  const text = (chatInput?.value || "").trim();
+  if (chatStep === "enquiry_type") {
+    return false;
+  }
+  if (chatStep === "mobile") {
+    return /^[0-9]{10}$/.test(text);
+  }
+  return Boolean(text);
+}
+
+function updateSendButton() {
+  if (!chatSend) {
+    return;
+  }
+  const ready = sendIsReady();
+  chatSend.disabled = !ready;
+  chatSend.classList.toggle("is-ready", ready);
+}
+
 function setComposer(step) {
   chatStep = step;
   const typing = step !== "enquiry_type";
@@ -424,6 +445,7 @@ function setComposer(step) {
   if (chatSuggest) {
     chatSuggest.hidden = step !== "query" && step !== "assist";
   }
+  updateSendButton();
 }
 
 function askStep(step) {
@@ -571,11 +593,13 @@ document.querySelector("[data-enquire-close]")?.addEventListener("click", () => 
 
 enquireForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (chatStep === "enquiry_type") {
+  if (chatStep === "enquiry_type" || !sendIsReady()) {
     return;
   }
   acceptAnswer(chatInput?.value || "");
 });
+
+chatInput?.addEventListener("input", updateSendButton);
 
 chatTypes?.querySelectorAll("[data-type]").forEach((button) => {
   button.addEventListener("click", () => {

@@ -699,11 +699,21 @@ footer {
 .wa-send {
   border: 0;
   border-radius: 999px;
-  background: #25d366;
+  background: #9cdbb3;
   color: #fff;
-  font-weight: 700;
+  font-weight: 400;
   padding: 10px 14px;
+  cursor: not-allowed;
+}
+
+.wa-send.is-ready {
+  background: #25d366;
+  font-weight: 800;
   cursor: pointer;
+}
+
+.wa-send:disabled {
+  pointer-events: none;
 }
 
 .wa-fab {
