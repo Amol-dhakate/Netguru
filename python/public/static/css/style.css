@@ -683,6 +683,11 @@ footer {
   cursor: pointer;
 }
 
+.wa-types button.is-on {
+  background: #075e54;
+  color: #fff;
+}
+
 .wa-row {
   display: flex;
   gap: 8px;
