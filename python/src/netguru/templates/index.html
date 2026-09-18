@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Net Guru Online Services | netguruonline.com</title>
+    <title>Net Guru Shop | netguruonline.com</title>
     <meta
       name="description"
-      content="20+ years in Indore. Online forms, Aadhaar, PAN, admissions counselling, government registrations, photocopy and printing. 70-71 Indrapuri Colony, Bhawarkua."
+      content="Shop Net Guru services in Indore: photocopy, printing, PVC cards, PAN, Aadhaar, government forms and admission counselling."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
   </head>
-  <body>
+  <body data-whatsapp="{{ whatsapp_number }}">
     <header class="top">
       <div class="wrap top-inner">
         <a class="brand" href="#top">
@@ -27,11 +27,14 @@
           />
         </a>
         <nav>
-          <a href="#services">Services</a>
+          <a href="#shop">Shop</a>
+          <a href="#services">Categories</a>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a class="call-btn" href="tel:{{ phone }}">Call {{ phone }}</a>
+        <button class="cart-btn" type="button" data-open-cart>
+          Cart <span class="cart-count" data-cart-count>0</span>
+        </button>
       </div>
     </header>
 
@@ -43,16 +46,58 @@
       />
       <div class="hero-shade"></div>
       <div class="wrap hero-copy">
-        <p class="eyebrow">20+ years of trusted service · Bhawarkua, Indore</p>
-        <h1>NET GURU<br />Online Services</h1>
+        <p class="eyebrow">Online shop · Bhawarkua, Indore</p>
+        <h1>Order services.<br />Collect at the centre.</h1>
         <p class="lede hindi">आपकी सुविधा, हमारा दायित्व</p>
         <p class="lede">
-          Forms, Aadhaar, PAN, admissions and government work — one counter,
-          correct information, same-day help.
+          Add photocopy, cards, forms and counselling to your cart, then send
+          the order on WhatsApp.
         </p>
         <div class="hero-actions">
-          <a class="btn primary" href="{{ whatsapp }}">WhatsApp</a>
-          <a class="btn ghost" href="#services">View services</a>
+          <a class="btn primary" href="#shop">Shop now</a>
+          <a class="btn ghost" href="tel:{{ phone }}">Call {{ phone }}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shop-section" id="shop">
+      <div class="wrap">
+        <p class="kicker">स्टोर</p>
+        <h2>Shop services</h2>
+        <p class="section-lead">
+          Priced items show counter rates. Quote items are confirmed on WhatsApp.
+        </p>
+        <div class="filters" data-filters>
+          {% for cat in categories %}
+          <button type="button" class="chip{% if cat.id == 'all' %} is-on{% endif %}" data-filter="{{ cat.id }}">
+            {{ cat.label }}
+          </button>
+          {% endfor %}
+        </div>
+        <div class="products" data-products>
+          {% for item in products %}
+          <article class="product" data-category="{{ item.category }}">
+            <img
+              src="{{ url_for('static', filename='images/' + item.image) }}"
+              alt="{{ item.name }}"
+            />
+            <div class="product-body">
+              <h3>{{ item.name }}</h3>
+              <p>{{ item.blurb }}</p>
+              <p class="price">{{ item.price_label }}</p>
+              <button
+                class="btn primary add-btn"
+                type="button"
+                data-add
+                data-id="{{ item.id }}"
+                data-name="{{ item.name }}"
+                data-price="{{ item.price_value }}"
+              >
+                Add to cart
+              </button>
+            </div>
+          </article>
+          {% endfor %}
         </div>
       </div>
     </section>
@@ -60,12 +105,10 @@
     <section class="section services-section" id="services">
       <div class="wrap">
         <p class="kicker">हमारी सेवाएं</p>
-        <h2>Our services</h2>
+        <h2>Shop by icon</h2>
         <p class="section-lead">
-          Tap any icon to message us on WhatsApp about that service. Icons are
-          from our official flyer.
+          Tap a flyer icon to jump to that category. Icons stay as on the official flyer.
         </p>
-
         <div class="service-board">
           <img
             src="{{ url_for('static', filename='images/services-grid.jpg') }}"
@@ -73,13 +116,12 @@
           />
           <div class="service-hotspots">
             {% for item in services %}
-            <a href="{{ item.href }}" target="_blank" rel="noopener" title="{{ item.label }}">
+            <a href="#shop" data-jump="{{ item.category }}" title="{{ item.label }}">
               <span class="sr-only">{{ item.label }}</span>
             </a>
             {% endfor %}
           </div>
         </div>
-
         <div class="expertise">
           <h3>Counselling expertise</h3>
           <ul>
@@ -118,6 +160,17 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
 
+    <aside class="cart-panel" id="cart" hidden>
+      <div class="cart-head">
+        <h2>Your cart</h2>
+        <button type="button" data-close-cart>Close</button>
+      </div>
+      <div class="cart-list" data-cart-list></div>
+      <p class="cart-total">Total (priced items): ₹<span data-cart-total>0</span></p>
+      <a class="btn primary checkout" data-checkout href="{{ whatsapp }}">Checkout on WhatsApp</a>
+    </aside>
+    <div class="cart-mask" data-close-cart hidden></div>
+
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
@@ -137,9 +190,9 @@
         </div>
         <ul class="why">
           <li>20 years of experience</li>
+          <li>Pay and collect at the shop</li>
           <li>Correct information, student-first advice</li>
           <li>All work under one roof</li>
-          <li>Fast and reliable counter service</li>
         </ul>
       </div>
     </section>

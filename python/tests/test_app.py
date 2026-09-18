@@ -24,8 +24,10 @@ def test_home_page_renders_gallery() -> None:
     assert "services-flyer.jpg" not in html
     assert "services-grid.jpg" in html
     assert "9755588862" in html
+    assert "Shop services" in html
+    assert "Add to cart" in html
     assert "Online Form Filling" in html
-    assert "wa.me/919755588862" in html
+    assert "Photocopy" in html
 
 
 def test_static_export_for_hostinger(tmp_path: Path) -> None:
