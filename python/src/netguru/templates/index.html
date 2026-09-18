@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Net Guru Shop | netguruonline.com</title>
     <meta
       name="description"
@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Outfit:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
@@ -28,10 +28,14 @@
           <span class="brand-name">Net Guru</span>
         </a>
         <nav>
-          <a href="#shop">Shop</a>
-          <a href="#contact">Contact</a>
+          <a href="#shop" data-i18n="nav.shop">Shop</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
-        <a class="call-btn" href="tel:{{ phone }}">Call {{ phone }}</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="is-on">EN</button>
+          <button type="button" data-lang="hi">हिंदी</button>
+        </div>
+        <a class="call-btn" href="tel:{{ phone }}"><span data-i18n="call">Call</span> <span class="call-num">{{ phone }}</span></a>
       </div>
     </header>
 
@@ -47,10 +51,10 @@
       </div>
       <div class="hero-shade"></div>
       <div class="wrap hero-copy">
-        <p class="eyebrow">Online shop · Bhawarkua, Indore</p>
-        <h1>Order services.<br />Collect at the centre.</h1>
-        <p class="lede">Your convenience, our responsibility.</p>
-        <p class="lede">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Online shop · Bhawarkua, Indore</p>
+        <h1 data-i18n-html="hero.title">Order services.<br />Collect at the centre.</h1>
+        <p class="lede" data-i18n="hero.tagline">Your convenience, our responsibility.</p>
+        <p class="lede" data-i18n="hero.lead">
           Choose a service and enquire on WhatsApp. Collect and pay at the
           centre.
         </p>
@@ -59,14 +63,15 @@
             class="btn primary"
             href="{{ whatsapp }}"
             data-enquire
+            data-i18n="enquire"
           >Enquire on WhatsApp</a>
-          <a class="btn ghost" href="tel:{{ phone }}">Call {{ phone }}</a>
+          <a class="btn ghost" href="tel:{{ phone }}"><span data-i18n="call">Call</span> {{ phone }}</a>
         </div>
       </div>
-      <button class="hero-ctrl prev" type="button" data-hero-prev aria-label="Previous photo">
+      <button class="hero-ctrl prev" type="button" data-hero-prev data-i18n-aria="prev" aria-label="Previous photo">
         ‹
       </button>
-      <button class="hero-ctrl next" type="button" data-hero-next aria-label="Next photo">
+      <button class="hero-ctrl next" type="button" data-hero-next data-i18n-aria="next" aria-label="Next photo">
         ›
       </button>
       <div class="hero-dots" data-hero-dots>
@@ -84,13 +89,13 @@
 
     <section class="section shop-section" id="shop">
       <div class="wrap">
-        <h2>Our Services</h2>
-        <p class="section-lead">
+        <h2 data-i18n="shop.title">Our Services</h2>
+        <p class="section-lead" data-i18n="shop.lead">
           Choose a service and enquire on WhatsApp. Collect and pay at the centre.
         </p>
         <div class="filters" data-filters>
           {% for cat in categories %}
-          <button type="button" class="chip{% if cat.id == 'all' %} is-on{% endif %}" data-filter="{{ cat.id }}">
+          <button type="button" class="chip{% if cat.id == 'all' %} is-on{% endif %}" data-filter="{{ cat.id }}" data-i18n="cat.{{ cat.id }}">
             {{ cat.label }}
           </button>
           {% endfor %}
@@ -105,14 +110,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>{{ item.name }}</h3>
-              <p>{{ item.blurb }}</p>
+              <h3 data-i18n="product.{{ item.id }}.name">{{ item.name }}</h3>
+              <p data-i18n="product.{{ item.id }}.blurb">{{ item.blurb }}</p>
               <a
                 class="btn primary add-btn"
                 href="{{ item.enquire_href }}"
                 data-enquire
                 data-service="{{ item.name }}"
+                data-product="{{ item.id }}"
                 data-category="{{ item.category }}"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -121,7 +128,7 @@
           {% endfor %}
         </div>
         <div class="expertise">
-          <h3>Counselling expertise</h3>
+          <h3 data-i18n="shop.expertise">Counselling expertise</h3>
           <ul>
             {% for item in counselling %}
             <li>{{ item }}</li>
@@ -134,10 +141,10 @@
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
-          <p class="kicker">Contact</p>
-          <h2>Visit the centre</h2>
+          <p class="kicker" data-i18n="nav.contact">Contact</p>
+          <h2 data-i18n="contact.title">Visit the centre</h2>
           <p>Net Guru Online Services</p>
-          <p>
+          <p data-i18n-html="contact.address">
             70–71, Indrapuri Colony, Bhawarkua,<br />
             Indore, Madhya Pradesh
           </p>
@@ -146,13 +153,13 @@
             <a href="mailto:indoreng@gmail.com">indoreng@gmail.com</a><br />
             <a href="https://netguruonline.com">netguruonline.com</a>
           </p>
-          <a class="btn primary solid" href="{{ whatsapp }}" data-enquire>Enquire on WhatsApp</a>
+          <a class="btn primary solid" href="{{ whatsapp }}" data-enquire data-i18n="enquire">Enquire on WhatsApp</a>
         </div>
         <ul class="why">
-          <li>20 years of experience</li>
-          <li>Pay and collect at the shop</li>
-          <li>Correct information, student-first advice</li>
-          <li>All work under one roof</li>
+          <li data-i18n="why.experience">20 years of experience</li>
+          <li data-i18n="why.pay">Pay and collect at the shop</li>
+          <li data-i18n="why.advice">Correct information, student-first advice</li>
+          <li data-i18n="why.roof">All work under one roof</li>
         </ul>
       </div>
     </section>
@@ -167,9 +174,9 @@
         <img src="{{ url_for('static', filename='images/netguru-logo.jpg') }}" alt="" />
         <div>
           <h2 id="enquire-title">Net Guru</h2>
-          <p>WhatsApp chat assistant</p>
+          <p data-i18n="chat.assistant">WhatsApp chat assistant</p>
         </div>
-        <button type="button" data-enquire-close aria-label="Close chat">×</button>
+        <button type="button" data-enquire-close data-i18n-aria="chat.close" aria-label="Close chat">×</button>
       </div>
       <div class="wa-log" data-chat-log></div>
       <form class="wa-composer" id="enquire-form">
@@ -178,20 +185,21 @@
         <input name="mobile" type="hidden" />
         <input name="enquiry_type" type="hidden" />
         <div class="wa-types" data-chat-types hidden>
-          <button type="button" data-type="Print &amp; copy">Print &amp; copy</button>
-          <button type="button" data-type="IDs &amp; cards">IDs &amp; cards</button>
-          <button type="button" data-type="Forms">Forms</button>
-          <button type="button" data-type="Counselling">Counselling</button>
-          <button type="button" data-type="Other">Other</button>
+          <button type="button" data-type="print" data-i18n="type.print">Print &amp; copy</button>
+          <button type="button" data-type="ids" data-i18n="type.ids">IDs &amp; cards</button>
+          <button type="button" data-type="forms" data-i18n="type.forms">Forms</button>
+          <button type="button" data-type="counselling" data-i18n="type.counselling">Counselling</button>
+          <button type="button" data-type="other" data-i18n="type.other">Other</button>
         </div>
         <div class="wa-row">
           <input
             data-chat-input
             type="text"
             autocomplete="off"
+            data-i18n-placeholder="chat.placeholder"
             placeholder="Type a message"
           />
-          <button class="wa-send" type="submit">Send</button>
+          <button class="wa-send" type="submit" data-i18n="chat.send">Send</button>
         </div>
       </form>
     </dialog>

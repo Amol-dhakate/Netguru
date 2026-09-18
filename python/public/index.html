@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Net Guru Shop | netguruonline.com</title>
     <meta
       name="description"
@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Outfit:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="static/css/style.css" />
@@ -28,10 +28,14 @@
           <span class="brand-name">Net Guru</span>
         </a>
         <nav>
-          <a href="#shop">Shop</a>
-          <a href="#contact">Contact</a>
+          <a href="#shop" data-i18n="nav.shop">Shop</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
-        <a class="call-btn" href="tel:9755588862">Call 9755588862</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="is-on">EN</button>
+          <button type="button" data-lang="hi">हिंदी</button>
+        </div>
+        <a class="call-btn" href="tel:9755588862"><span data-i18n="call">Call</span> <span class="call-num">9755588862</span></a>
       </div>
     </header>
 
@@ -89,10 +93,10 @@
       </div>
       <div class="hero-shade"></div>
       <div class="wrap hero-copy">
-        <p class="eyebrow">Online shop · Bhawarkua, Indore</p>
-        <h1>Order services.<br />Collect at the centre.</h1>
-        <p class="lede">Your convenience, our responsibility.</p>
-        <p class="lede">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Online shop · Bhawarkua, Indore</p>
+        <h1 data-i18n-html="hero.title">Order services.<br />Collect at the centre.</h1>
+        <p class="lede" data-i18n="hero.tagline">Your convenience, our responsibility.</p>
+        <p class="lede" data-i18n="hero.lead">
           Choose a service and enquire on WhatsApp. Collect and pay at the
           centre.
         </p>
@@ -101,14 +105,15 @@
             class="btn primary"
             href="https://wa.me/919755588862"
             data-enquire
+            data-i18n="enquire"
           >Enquire on WhatsApp</a>
-          <a class="btn ghost" href="tel:9755588862">Call 9755588862</a>
+          <a class="btn ghost" href="tel:9755588862"><span data-i18n="call">Call</span> 9755588862</a>
         </div>
       </div>
-      <button class="hero-ctrl prev" type="button" data-hero-prev aria-label="Previous photo">
+      <button class="hero-ctrl prev" type="button" data-hero-prev data-i18n-aria="prev" aria-label="Previous photo">
         ‹
       </button>
-      <button class="hero-ctrl next" type="button" data-hero-next aria-label="Next photo">
+      <button class="hero-ctrl next" type="button" data-hero-next data-i18n-aria="next" aria-label="Next photo">
         ›
       </button>
       <div class="hero-dots" data-hero-dots>
@@ -182,29 +187,29 @@
 
     <section class="section shop-section" id="shop">
       <div class="wrap">
-        <h2>Our Services</h2>
-        <p class="section-lead">
+        <h2 data-i18n="shop.title">Our Services</h2>
+        <p class="section-lead" data-i18n="shop.lead">
           Choose a service and enquire on WhatsApp. Collect and pay at the centre.
         </p>
         <div class="filters" data-filters>
           
-          <button type="button" class="chip is-on" data-filter="all">
+          <button type="button" class="chip is-on" data-filter="all" data-i18n="cat.all">
             All
           </button>
           
-          <button type="button" class="chip" data-filter="print">
+          <button type="button" class="chip" data-filter="print" data-i18n="cat.print">
             Print &amp; copy
           </button>
           
-          <button type="button" class="chip" data-filter="ids">
+          <button type="button" class="chip" data-filter="ids" data-i18n="cat.ids">
             IDs &amp; cards
           </button>
           
-          <button type="button" class="chip" data-filter="forms">
+          <button type="button" class="chip" data-filter="forms" data-i18n="cat.forms">
             Forms
           </button>
           
-          <button type="button" class="chip" data-filter="counselling">
+          <button type="button" class="chip" data-filter="counselling" data-i18n="cat.counselling">
             Counselling
           </button>
           
@@ -219,14 +224,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Photocopy</h3>
-              <p>Black &amp; white copies at the counter.</p>
+              <h3 data-i18n="product.photocopy.name">Photocopy</h3>
+              <p data-i18n="product.photocopy.blurb">Black &amp; white copies at the counter.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Photocopy"
                 data-enquire
                 data-service="Photocopy"
+                data-product="photocopy"
                 data-category="print"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -241,14 +248,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Colour / document print</h3>
-              <p>Print forms, notes and documents.</p>
+              <h3 data-i18n="product.printout.name">Colour / document print</h3>
+              <p data-i18n="product.printout.blurb">Print forms, notes and documents.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Colour%20/%20document%20print"
                 data-enquire
                 data-service="Colour / document print"
+                data-product="printout"
                 data-category="print"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -263,14 +272,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Admit-card photo</h3>
-              <p>Exam and admit-card size photos.</p>
+              <h3 data-i18n="product.admit-photo.name">Admit-card photo</h3>
+              <p data-i18n="product.admit-photo.blurb">Exam and admit-card size photos.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Admit-card%20photo"
                 data-enquire
                 data-service="Admit-card photo"
+                data-product="admit-photo"
                 data-category="print"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -285,14 +296,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>PVC card</h3>
-              <p>Printed PVC identity cards.</p>
+              <h3 data-i18n="product.pvc-card.name">PVC card</h3>
+              <p data-i18n="product.pvc-card.blurb">Printed PVC identity cards.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20PVC%20card"
                 data-enquire
                 data-service="PVC card"
+                data-product="pvc-card"
                 data-category="ids"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -307,14 +320,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Passport photo</h3>
-              <p>Passport-size photos, same day.</p>
+              <h3 data-i18n="product.passport-photo.name">Passport photo</h3>
+              <p data-i18n="product.passport-photo.blurb">Passport-size photos, same day.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Passport%20photo"
                 data-enquire
                 data-service="Passport photo"
+                data-product="passport-photo"
                 data-category="print"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -329,14 +344,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Document scan &amp; email</h3>
-              <p>Scan papers and send them by email.</p>
+              <h3 data-i18n="product.scan-email.name">Document scan &amp; email</h3>
+              <p data-i18n="product.scan-email.blurb">Scan papers and send them by email.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Document%20scan%20%26%20email"
                 data-enquire
                 data-service="Document scan &amp; email"
+                data-product="scan-email"
                 data-category="print"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -351,14 +368,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Online form filling</h3>
-              <p>We fill and submit your online form.</p>
+              <h3 data-i18n="product.online-form.name">Online form filling</h3>
+              <p data-i18n="product.online-form.blurb">We fill and submit your online form.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Online%20form%20filling"
                 data-enquire
                 data-service="Online form filling"
+                data-product="online-form"
                 data-category="forms"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -373,14 +392,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>All government forms</h3>
-              <p>MP Online and other govt applications.</p>
+              <h3 data-i18n="product.govt-forms.name">All government forms</h3>
+              <p data-i18n="product.govt-forms.blurb">MP Online and other govt applications.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20All%20government%20forms"
                 data-enquire
                 data-service="All government forms"
+                data-product="govt-forms"
                 data-category="forms"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -395,14 +416,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Scholarship forms</h3>
-              <p>Scholarship and student aid forms.</p>
+              <h3 data-i18n="product.scholarship.name">Scholarship forms</h3>
+              <p data-i18n="product.scholarship.blurb">Scholarship and student aid forms.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Scholarship%20forms"
                 data-enquire
                 data-service="Scholarship forms"
+                data-product="scholarship"
                 data-category="forms"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -417,14 +440,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Gumasta / MSME registration</h3>
-              <p>Shop licence and MSME paperwork.</p>
+              <h3 data-i18n="product.gumasta-msme.name">Gumasta / MSME registration</h3>
+              <p data-i18n="product.gumasta-msme.blurb">Shop licence and MSME paperwork.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Gumasta%20/%20MSME%20registration"
                 data-enquire
                 data-service="Gumasta / MSME registration"
+                data-product="gumasta-msme"
                 data-category="forms"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -439,14 +464,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Nursing / BPharma registration</h3>
-              <p>Medical and pharmacy registrations.</p>
+              <h3 data-i18n="product.medical-reg.name">Nursing / BPharma registration</h3>
+              <p data-i18n="product.medical-reg.blurb">Medical and pharmacy registrations.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Nursing%20/%20BPharma%20registration"
                 data-enquire
                 data-service="Nursing / BPharma registration"
+                data-product="medical-reg"
                 data-category="forms"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -461,14 +488,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>PAN &amp; Aadhaar services</h3>
-              <p>PAN, Aadhaar update and related work.</p>
+              <h3 data-i18n="product.pan-aadhaar.name">PAN &amp; Aadhaar services</h3>
+              <p data-i18n="product.pan-aadhaar.blurb">PAN, Aadhaar update and related work.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20PAN%20%26%20Aadhaar%20services"
                 data-enquire
                 data-service="PAN &amp; Aadhaar services"
+                data-product="pan-aadhaar"
                 data-category="ids"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -483,14 +512,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Voter ID &amp; Samagra ID</h3>
-              <p>Voter card and Samagra ID help.</p>
+              <h3 data-i18n="product.voter-samagra.name">Voter ID &amp; Samagra ID</h3>
+              <p data-i18n="product.voter-samagra.blurb">Voter card and Samagra ID help.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Voter%20ID%20%26%20Samagra%20ID"
                 data-enquire
                 data-service="Voter ID &amp; Samagra ID"
+                data-product="voter-samagra"
                 data-category="ids"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -505,14 +536,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Admission counselling</h3>
-              <p>Free guidance for college admissions.</p>
+              <h3 data-i18n="product.counselling.name">Admission counselling</h3>
+              <p data-i18n="product.counselling.blurb">Free guidance for college admissions.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Admission%20counselling"
                 data-enquire
                 data-service="Admission counselling"
+                data-product="counselling"
                 data-category="counselling"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -527,14 +560,16 @@
               />
             </div>
             <div class="product-body">
-              <h3>Exam counselling (NEET, JEE, CLAT…)</h3>
-              <p>NEET, JEE, CLAT, CET, ePravesh and more.</p>
+              <h3 data-i18n="product.exam-counselling.name">Exam counselling (NEET, JEE, CLAT…)</h3>
+              <p data-i18n="product.exam-counselling.blurb">NEET, JEE, CLAT, CET, ePravesh and more.</p>
               <a
                 class="btn primary add-btn"
                 href="https://wa.me/919755588862?text=Hello%20Net%20Guru%2C%20I%20want%20to%20enquire%20about%3A%20Exam%20counselling%20%28NEET%2C%20JEE%2C%20CLAT%E2%80%A6%29"
                 data-enquire
                 data-service="Exam counselling (NEET, JEE, CLAT…)"
+                data-product="exam-counselling"
                 data-category="counselling"
+                data-i18n="enquire"
               >
                 Enquire on WhatsApp
               </a>
@@ -543,7 +578,7 @@
           
         </div>
         <div class="expertise">
-          <h3>Counselling expertise</h3>
+          <h3 data-i18n="shop.expertise">Counselling expertise</h3>
           <ul>
             
             <li>NEET UG</li>
@@ -584,10 +619,10 @@
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
-          <p class="kicker">Contact</p>
-          <h2>Visit the centre</h2>
+          <p class="kicker" data-i18n="nav.contact">Contact</p>
+          <h2 data-i18n="contact.title">Visit the centre</h2>
           <p>Net Guru Online Services</p>
-          <p>
+          <p data-i18n-html="contact.address">
             70–71, Indrapuri Colony, Bhawarkua,<br />
             Indore, Madhya Pradesh
           </p>
@@ -596,13 +631,13 @@
             <a href="mailto:indoreng@gmail.com">indoreng@gmail.com</a><br />
             <a href="https://netguruonline.com">netguruonline.com</a>
           </p>
-          <a class="btn primary solid" href="https://wa.me/919755588862" data-enquire>Enquire on WhatsApp</a>
+          <a class="btn primary solid" href="https://wa.me/919755588862" data-enquire data-i18n="enquire">Enquire on WhatsApp</a>
         </div>
         <ul class="why">
-          <li>20 years of experience</li>
-          <li>Pay and collect at the shop</li>
-          <li>Correct information, student-first advice</li>
-          <li>All work under one roof</li>
+          <li data-i18n="why.experience">20 years of experience</li>
+          <li data-i18n="why.pay">Pay and collect at the shop</li>
+          <li data-i18n="why.advice">Correct information, student-first advice</li>
+          <li data-i18n="why.roof">All work under one roof</li>
         </ul>
       </div>
     </section>
@@ -617,9 +652,9 @@
         <img src="static/images/netguru-logo.jpg" alt="" />
         <div>
           <h2 id="enquire-title">Net Guru</h2>
-          <p>WhatsApp chat assistant</p>
+          <p data-i18n="chat.assistant">WhatsApp chat assistant</p>
         </div>
-        <button type="button" data-enquire-close aria-label="Close chat">×</button>
+        <button type="button" data-enquire-close data-i18n-aria="chat.close" aria-label="Close chat">×</button>
       </div>
       <div class="wa-log" data-chat-log></div>
       <form class="wa-composer" id="enquire-form">
@@ -628,20 +663,21 @@
         <input name="mobile" type="hidden" />
         <input name="enquiry_type" type="hidden" />
         <div class="wa-types" data-chat-types hidden>
-          <button type="button" data-type="Print &amp; copy">Print &amp; copy</button>
-          <button type="button" data-type="IDs &amp; cards">IDs &amp; cards</button>
-          <button type="button" data-type="Forms">Forms</button>
-          <button type="button" data-type="Counselling">Counselling</button>
-          <button type="button" data-type="Other">Other</button>
+          <button type="button" data-type="print" data-i18n="type.print">Print &amp; copy</button>
+          <button type="button" data-type="ids" data-i18n="type.ids">IDs &amp; cards</button>
+          <button type="button" data-type="forms" data-i18n="type.forms">Forms</button>
+          <button type="button" data-type="counselling" data-i18n="type.counselling">Counselling</button>
+          <button type="button" data-type="other" data-i18n="type.other">Other</button>
         </div>
         <div class="wa-row">
           <input
             data-chat-input
             type="text"
             autocomplete="off"
+            data-i18n-placeholder="chat.placeholder"
             placeholder="Type a message"
           />
-          <button class="wa-send" type="submit">Send</button>
+          <button class="wa-send" type="submit" data-i18n="chat.send">Send</button>
         </div>
       </form>
     </dialog>

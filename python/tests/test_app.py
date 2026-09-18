@@ -53,6 +53,8 @@ def test_home_page_renders_gallery() -> None:
     assert "data-hero-slider" in html
     assert 'id="gallery"' not in html
     assert "<h2>Gallery</h2>" not in html
+    assert 'width=device-width' in html
+    assert "viewport-fit=cover" in html
 
 
 def test_static_export_for_hostinger(tmp_path: Path) -> None:
