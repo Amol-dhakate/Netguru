@@ -29,6 +29,7 @@
         </a>
         <nav>
           <a href="#shop" data-i18n="nav.shop">Shop</a>
+          <a href="#offers" data-i18n="nav.offers">Offers</a>
           <a href="#contact" data-i18n="nav.contact">Contact</a>
         </nav>
         <div class="lang-toggle" role="group" aria-label="Language">
@@ -138,6 +139,40 @@
       </div>
     </section>
 
+    <section class="section ads-section" id="offers">
+      <div class="wrap">
+        <p class="kicker" data-i18n="ads.kicker">Marketing</p>
+        <h2 data-i18n="ads.title">Offers at the centre</h2>
+        <p class="section-lead" data-i18n="ads.lead">Current ads from Net Guru. Enquire on WhatsApp and collect at the shop.</p>
+        <div class="ads">
+          <article class="ad">
+            <img src="{{ url_for('static', filename='images/shop-exam-counselling.png') }}" alt="" />
+            <div class="ad-body">
+              <h3 data-i18n="ads.counsel.title">Free NEET, JEE &amp; CLAT counselling</h3>
+              <p data-i18n="ads.counsel.text">Get admission guidance at the centre. Bring marksheets. No online payment.</p>
+              <a class="btn primary" href="{{ whatsapp }}" data-enquire data-service="Admission counselling" data-product="counselling" data-category="counselling" data-i18n="enquire">Enquire on WhatsApp</a>
+            </div>
+          </article>
+          <article class="ad">
+            <img src="{{ url_for('static', filename='images/shop-passport-photo.png') }}" alt="" />
+            <div class="ad-body">
+              <h3 data-i18n="ads.photo.title">Same-day passport &amp; admit-card photos</h3>
+              <p data-i18n="ads.photo.text">Photos and PVC cards printed at the counter. Walk in or enquire first.</p>
+              <a class="btn primary" href="{{ whatsapp }}" data-enquire data-service="Passport photo" data-product="passport-photo" data-category="ids" data-i18n="enquire">Enquire on WhatsApp</a>
+            </div>
+          </article>
+          <article class="ad">
+            <img src="{{ url_for('static', filename='images/shop-pan-aadhaar.png') }}" alt="" />
+            <div class="ad-body">
+              <h3 data-i18n="ads.forms.title">PAN, Aadhaar and government forms</h3>
+              <p data-i18n="ads.forms.text">MP Online, scholarship, Gumasta/MSME and ID work under one roof.</p>
+              <a class="btn primary" href="{{ whatsapp }}" data-enquire data-service="PAN &amp; Aadhaar services" data-product="pan-aadhaar" data-category="ids" data-i18n="enquire">Enquire on WhatsApp</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact" id="contact">
       <div class="wrap contact-grid">
         <div>
@@ -166,7 +201,7 @@
 
     <footer>
       <div class="wrap">
-        <p>© Net Guru Online Services · netguruonline.com</p>
+        <p>© Net Guru Online Services · netguruonline.com · <button type="button" class="cookie-link" data-cookie-open data-i18n="cookie.manage">Cookies</button></p>
       </div>
     </footer>
     <dialog class="wa-chat" id="enquire" aria-labelledby="enquire-title">
@@ -219,6 +254,45 @@
       </svg>
       <span data-i18n="chat.fab">AI Assist</span>
     </button>
+    <aside class="ad-popup" data-ad-popup hidden>
+      <button type="button" class="ad-popup-close" data-ad-close data-i18n-aria="ads.close" aria-label="Close ad">×</button>
+      <span class="ad-badge" data-i18n="ads.badge">Ad</span>
+      <article class="ad-popup-slide is-on" data-ad-slide>
+        <img src="{{ url_for('static', filename='images/shop-exam-counselling.png') }}" alt="" />
+        <div class="ad-popup-body">
+          <h3 data-i18n="ads.counsel.title">Free NEET, JEE &amp; CLAT counselling</h3>
+          <p data-i18n="ads.counsel.text">Get admission guidance at the centre. Bring marksheets. No online payment.</p>
+          <a class="btn primary" href="{{ whatsapp }}" data-enquire data-service="Admission counselling" data-product="counselling" data-category="counselling" data-i18n="enquire">Enquire on WhatsApp</a>
+        </div>
+      </article>
+      <article class="ad-popup-slide" data-ad-slide>
+        <img src="{{ url_for('static', filename='images/shop-passport-photo.png') }}" alt="" />
+        <div class="ad-popup-body">
+          <h3 data-i18n="ads.photo.title">Same-day passport &amp; admit-card photos</h3>
+          <p data-i18n="ads.photo.text">Photos and PVC cards printed at the counter. Walk in or enquire first.</p>
+          <a class="btn primary" href="{{ whatsapp }}" data-enquire data-service="Passport photo" data-product="passport-photo" data-category="ids" data-i18n="enquire">Enquire on WhatsApp</a>
+        </div>
+      </article>
+      <article class="ad-popup-slide" data-ad-slide>
+        <img src="{{ url_for('static', filename='images/shop-pan-aadhaar.png') }}" alt="" />
+        <div class="ad-popup-body">
+          <h3 data-i18n="ads.forms.title">PAN, Aadhaar and government forms</h3>
+          <p data-i18n="ads.forms.text">MP Online, scholarship, Gumasta/MSME and ID work under one roof.</p>
+          <a class="btn primary" href="{{ whatsapp }}" data-enquire data-service="PAN &amp; Aadhaar services" data-product="pan-aadhaar" data-category="ids" data-i18n="enquire">Enquire on WhatsApp</a>
+        </div>
+      </article>
+      <button type="button" class="ad-later" data-ad-later data-i18n="ads.later">Maybe later</button>
+    </aside>
+    <div class="cookie-bar" data-cookie-bar hidden>
+      <p data-i18n="cookie.text">
+        We use cookies to remember your language and to improve the site. Necessary cookies keep
+        the site working. Accept all cookies if you are happy with optional cookies too.
+      </p>
+      <div class="cookie-actions">
+        <button type="button" data-cookie="necessary" data-i18n="cookie.necessary">Necessary only</button>
+        <button type="button" class="is-on" data-cookie="all" data-i18n="cookie.accept">Accept all cookies</button>
+      </div>
+    </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   </body>
 </html>
