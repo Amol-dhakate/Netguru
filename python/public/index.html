@@ -652,7 +652,7 @@
         <img src="static/images/netguru-logo.jpg" alt="" />
         <div>
           <h2 id="enquire-title">Net Guru</h2>
-          <p data-i18n="chat.assistant">WhatsApp chat assistant</p>
+          <p data-i18n="chat.assistant">AI Assist</p>
         </div>
         <button type="button" data-enquire-close data-i18n-aria="chat.close" aria-label="Close chat">×</button>
       </div>
@@ -662,12 +662,19 @@
         <input name="last_name" type="hidden" />
         <input name="mobile" type="hidden" />
         <input name="enquiry_type" type="hidden" />
+        <input name="query" type="hidden" />
         <div class="wa-types" data-chat-types hidden>
           <button type="button" data-type="print" data-i18n="type.print">Print &amp; copy</button>
           <button type="button" data-type="ids" data-i18n="type.ids">IDs &amp; cards</button>
           <button type="button" data-type="forms" data-i18n="type.forms">Forms</button>
           <button type="button" data-type="counselling" data-i18n="type.counselling">Counselling</button>
           <button type="button" data-type="other" data-i18n="type.other">Other</button>
+        </div>
+        <div class="wa-types" data-chat-suggest hidden>
+          <button type="button" data-suggest="address" data-i18n="suggest.address">Centre address</button>
+          <button type="button" data-suggest="hours" data-i18n="suggest.hours">Visit / timing</button>
+          <button type="button" data-suggest="docs" data-i18n="suggest.docs">Documents needed</button>
+          <button type="button" data-suggest="whatsapp" data-i18n="suggest.whatsapp">Open WhatsApp again</button>
         </div>
         <div class="wa-row">
           <input
@@ -681,6 +688,15 @@
         </div>
       </form>
     </dialog>
+    <button class="wa-fab" type="button" data-enquire-open data-i18n-aria="chat.assistant" aria-label="AI Assist">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M12 2.2 13.2 6a4.4 4.4 0 0 0 3.3 3.3L20.8 10.5 16.5 11.7a4.4 4.4 0 0 0-3.3 3.3L12 19.3 10.8 15a4.4 4.4 0 0 0-3.3-3.3L3.2 10.5 7.5 9.3A4.4 4.4 0 0 0 10.8 6L12 2.2Zm6.4 12.1.7 2.2 2.2.7-2.2.7-.7 2.2-.7-2.2-2.2-.7 2.2-.7.7-2.2Z"
+        />
+      </svg>
+      <span data-i18n="chat.fab">AI Assist</span>
+    </button>
     <script src="static/js/main.js"></script>
   </body>
 </html>

@@ -33,11 +33,15 @@ def test_home_page_renders_gallery() -> None:
     assert "Enquire on WhatsApp" in html
     assert "Message on WhatsApp" not in html
     assert "Shop now" not in html
-    assert "WhatsApp chat assistant" in html
+    assert "AI Assist" in html
+    assert "WhatsApp chat assistant" not in html
     assert 'name="first_name"' in html
     assert 'name="last_name"' in html
     assert 'name="mobile"' in html
     assert 'name="enquiry_type"' in html
+    assert 'name="query"' in html
+    assert "data-enquire-open" in html
+    assert "data-chat-suggest" in html
     assert "Enquiry type" not in html
     assert "Enquiry time" not in html
     assert 'id="enquire-form"' in html
