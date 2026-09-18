@@ -25,26 +25,46 @@ const I18N = {
     "why.roof": "All work under one roof",
     prev: "Previous photo",
     next: "Next photo",
-    "chat.assistant": "WhatsApp chat assistant",
+    "chat.assistant": "AI Assist",
+    "chat.fab": "AI Assist",
     "chat.close": "Close chat",
     "chat.placeholder": "Type a message",
     "chat.mobilePlaceholder": "10-digit mobile number",
     "chat.send": "Send",
     "chat.hi": "Hi, I am the Net Guru WhatsApp assistant.",
     "chat.selected": "You selected: {name}.",
-    "chat.intro": "I will take a few details, then open WhatsApp for you.",
+    "chat.intro": "I will take a few details, open WhatsApp, then keep helping with your query.",
     "chat.first": "What is your first name?",
     "chat.last": "Thanks. What is your last name?",
     "chat.mobile": "Please share your 10-digit mobile number.",
     "chat.mobileError": "Please enter a 10-digit mobile number.",
     "chat.type": "What is your enquiry type? Tap one option.",
-    "chat.thanks": "Thank you. I am opening WhatsApp with your enquiry.",
+    "chat.query": "What is your query? Type it, or tap a topic.",
+    "chat.thanks": "Thank you. I am opening WhatsApp, then I will keep assisting here.",
+    "chat.opened": "WhatsApp is open for the shop. Keep asking here — I will help with your query.",
+    "chat.queryPlaceholder": "Type your query",
+    "suggest.address": "Centre address",
+    "suggest.hours": "Visit / timing",
+    "suggest.docs": "Documents needed",
+    "suggest.whatsapp": "Open WhatsApp again",
+    "faq.photocopy": "Photocopy is done at the counter. Bring the original papers and collect the copies at the centre.",
+    "faq.print": "We print forms, notes and documents in black & white or colour. Bring the file on phone, email or pen drive.",
+    "faq.photo": "Passport, admit-card and PVC photos are taken at the centre, usually the same day.",
+    "faq.forms": "We fill MP Online and other government, scholarship, Gumasta/MSME, nursing and pharmacy forms. Bring ID proofs and required documents.",
+    "faq.ids": "PAN, Aadhaar, voter ID and Samagra ID work is done at the centre. Bring existing IDs and a mobile number linked to Aadhaar.",
+    "faq.counselling": "Admission and exam counselling (NEET, JEE, CLAT, CET, ePravesh and more) is free. Visit the centre with marksheets for guidance.",
+    "faq.address": "Net Guru Online Services, 70–71 Indrapuri Colony, Bhawarkua, Indore. Call 9755588862.",
+    "faq.hours": "Visit the Bhawarkua centre to collect and pay. For timing, call 9755588862 or continue on WhatsApp.",
+    "faq.docs": "Bring original IDs (Aadhaar/PAN), photos if needed, and any form or file you want printed or submitted.",
+    "faq.pay": "There is no online payment here. Enquire now, then pay and collect at the shop.",
+    "faq.default": "I can help with photocopy, print, photos, IDs, government forms and counselling. Share a bit more, or the shop will reply on WhatsApp.",
     "wa.hello": "Hello Net Guru, I want to enquire.",
     "wa.first": "First name",
     "wa.last": "Last name",
     "wa.mobile": "Mobile no",
     "wa.type": "Enquiry type",
     "wa.service": "Service",
+    "wa.query": "Query",
     "type.print": "Print & copy",
     "type.ids": "IDs & cards",
     "type.forms": "Forms",
@@ -106,26 +126,46 @@ const I18N = {
     "why.roof": "सभी काम एक ही छत के नीचे",
     prev: "पिछली तस्वीर",
     next: "अगली तस्वीर",
-    "chat.assistant": "व्हाट्सऐप चैट सहायक",
+    "chat.assistant": "AI सहायता",
+    "chat.fab": "AI सहायता",
     "chat.close": "चैट बंद करें",
     "chat.placeholder": "संदेश लिखें",
     "chat.mobilePlaceholder": "10 अंकों का मोबाइल नंबर",
     "chat.send": "भेजें",
     "chat.hi": "नमस्ते, मैं नेट गुरु व्हाट्सऐप सहायक हूँ।",
     "chat.selected": "आपने चुना: {name}.",
-    "chat.intro": "मैं कुछ जानकारी लूँगा, फिर आपके लिए व्हाट्सऐप खोलूँगा।",
+    "chat.intro": "मैं कुछ जानकारी लूँगा, व्हाट्सऐप खोलूँगा, फिर आपकी क्वेरी में मदद करता रहूँगा।",
     "chat.first": "आपका पहला नाम क्या है?",
     "chat.last": "धन्यवाद। आपका अंतिम नाम क्या है?",
     "chat.mobile": "कृपया अपना 10 अंकों का मोबाइल नंबर बताएँ।",
     "chat.mobileError": "कृपया 10 अंकों का मोबाइल नंबर लिखें।",
     "chat.type": "पूछताछ का प्रकार क्या है? एक विकल्प चुनें।",
-    "chat.thanks": "धन्यवाद। मैं आपकी पूछताछ के साथ व्हाट्सऐप खोल रहा हूँ।",
+    "chat.query": "आपकी क्वेरी क्या है? लिखें, या एक विषय चुनें।",
+    "chat.thanks": "धन्यवाद। मैं व्हाट्सऐप खोल रहा हूँ, फिर यहाँ मदद करता रहूँगा।",
+    "chat.opened": "दुकान के लिए व्हाट्सऐप खुल गया है। यहाँ पूछते रहें — मैं आपकी क्वेरी में मदद करूँगा।",
+    "chat.queryPlaceholder": "अपनी क्वेरी लिखें",
+    "suggest.address": "केंद्र का पता",
+    "suggest.hours": "आना / समय",
+    "suggest.docs": "कौन से दस्तावेज़",
+    "suggest.whatsapp": "व्हाट्सऐप फिर खोलें",
+    "faq.photocopy": "फोटोकॉपी काउंटर पर होती है। मूल कागज़ लाएँ और केंद्र पर कॉपी ले जाएँ।",
+    "faq.print": "हम फॉर्म, नोट्स और दस्तावेज़ ब्लैक एंड व्हाइट या रंगीन प्रिंट करते हैं। फाइल फोन, ईमेल या पेन ड्राइव पर लाएँ।",
+    "faq.photo": "पासपोर्ट, एडमिट-कार्ड और पीवीसी फोटो केंद्र पर लिए जाते हैं, आमतौर पर उसी दिन।",
+    "faq.forms": "हम एमपी ऑनलाइन और अन्य सरकारी, छात्रवृत्ति, गुमास्ता/MSME, नर्सिंग और फार्मेसी फॉर्म भरते हैं। पहचान पत्र और जरूरी कागज़ लाएँ।",
+    "faq.ids": "पैन, आधार, वोटर आईडी और समग्र आईडी का काम केंद्र पर होता है। पुराने आईडी और आधार से जुड़ा मोबाइल नंबर लाएँ।",
+    "faq.counselling": "प्रवेश और परीक्षा परामर्श (NEET, JEE, CLAT, CET, ePravesh) मुफ्त है। मार्कशीट लेकर केंद्र आएँ।",
+    "faq.address": "नेट गुरु ऑनलाइन सर्विसेस, 70–71 इंद्रपुरी कॉलोनी, भावरकुआ, इंदौर। कॉल 9755588862।",
+    "faq.hours": "काम लेने और भुगतान के लिए भावरकुआ केंद्र आएँ। समय के लिए 9755588862 पर कॉल करें या व्हाट्सऐप पर पूछें।",
+    "faq.docs": "मूल आईडी (आधार/पैन), जरूरत हो तो फोटो, और जो फॉर्म या फाइल छपवानी/जमा करनी है वह लाएँ।",
+    "faq.pay": "यहाँ ऑनलाइन भुगतान नहीं है। पहले पूछताछ करें, फिर दुकान पर भुगतान कर काम लें।",
+    "faq.default": "मैं फोटोकॉपी, प्रिंट, फोटो, आईडी, सरकारी फॉर्म और परामर्श में मदद कर सकता हूँ। थोड़ा और लिखें, या दुकान व्हाट्सऐप पर जवाब देगी।",
     "wa.hello": "नमस्ते नेट गुरु, मुझे पूछताछ करनी है।",
     "wa.first": "पहला नाम",
     "wa.last": "अंतिम नाम",
     "wa.mobile": "मोबाइल नंबर",
     "wa.type": "पूछताछ का प्रकार",
     "wa.service": "सेवा",
+    "wa.query": "क्वेरी",
     "type.print": "प्रिंट और कॉपी",
     "type.ids": "आईडी और कार्ड",
     "type.forms": "फॉर्म",
@@ -276,6 +316,7 @@ const enquireForm = document.querySelector("#enquire-form");
 const chatLog = document.querySelector("[data-chat-log]");
 const chatInput = document.querySelector("[data-chat-input]");
 const chatTypes = document.querySelector("[data-chat-types]");
+const chatSuggest = document.querySelector("[data-chat-suggest]");
 const whatsappNumber = "919755588862";
 const typeByCategory = {
   print: "print",
@@ -283,10 +324,23 @@ const typeByCategory = {
   forms: "forms",
   counselling: "counselling",
 };
+const queryRules = [
+  { keys: ["photocopy", "xerox", "copy", "फोटोकॉपी", "जेरॉक्स", "कॉपी"], answer: "faq.photocopy" },
+  { keys: ["print", "printout", "प्रिंट"], answer: "faq.print" },
+  { keys: ["photo", "passport", "admit", "pvc", "फोटो", "पासपोर्ट", "एडमिट"], answer: "faq.photo" },
+  { keys: ["form", "scholarship", "gumasta", "msme", "nursing", "फॉर्म", "छात्रवृत्ति", "गुमास्ता"], answer: "faq.forms" },
+  { keys: ["pan", "aadhaar", "adhaar", "voter", "samagra", "पैन", "आधार", "वोटर", "समग्र"], answer: "faq.ids" },
+  { keys: ["counselling", "counseling", "neet", "jee", "clat", "admission", "परामर्श", "प्रवेश"], answer: "faq.counselling" },
+  { keys: ["address", "where", "location", "indore", "पता", "कहाँ", "कहा", "लोकेशन"], answer: "faq.address" },
+  { keys: ["hour", "time", "timing", "open", "visit", "समय", "खुल", "आना"], answer: "faq.hours" },
+  { keys: ["document", "paper", "id proof", "दस्तावेज", "दस्तावेज़", "कागज़", "कागज"], answer: "faq.docs" },
+  { keys: ["price", "pay", "fee", "charge", "कीमत", "दाम", "भुगतान", "फीस"], answer: "faq.pay" },
+];
 
 let enquireTopic = "";
 let chatStep = "first_name";
 let answers = {};
+let whatsappOpened = false;
 
 function addBubble(text, who) {
   if (!chatLog) {
@@ -306,14 +360,24 @@ function setHidden(name, value) {
   }
 }
 
-function askStep(step) {
+function replyForQuery(text) {
+  const q = text.toLowerCase();
+  const match = queryRules.find((rule) => rule.keys.some((key) => q.includes(key)));
+  return t(match ? match.answer : "faq.default");
+}
+
+function setComposer(step) {
   chatStep = step;
-  const typing = Boolean(step !== "enquiry_type" && step !== "done");
+  const typing = step !== "enquiry_type";
   if (chatInput) {
     chatInput.hidden = !typing;
     chatInput.value = "";
     chatInput.placeholder =
-      step === "mobile" ? t("chat.mobilePlaceholder") : t("chat.placeholder");
+      step === "mobile"
+        ? t("chat.mobilePlaceholder")
+        : step === "query" || step === "assist"
+          ? t("chat.queryPlaceholder")
+          : t("chat.placeholder");
     if (typing) {
       chatInput.focus();
     }
@@ -321,6 +385,13 @@ function askStep(step) {
   if (chatTypes) {
     chatTypes.hidden = step !== "enquiry_type";
   }
+  if (chatSuggest) {
+    chatSuggest.hidden = step !== "query" && step !== "assist";
+  }
+}
+
+function askStep(step) {
+  setComposer(step);
   if (step === "first_name") {
     addBubble(t("chat.first"), "bot");
   } else if (step === "last_name") {
@@ -329,7 +400,19 @@ function askStep(step) {
     addBubble(t("chat.mobile"), "bot");
   } else if (step === "enquiry_type") {
     addBubble(t("chat.type"), "bot");
+  } else if (step === "query") {
+    addBubble(t("chat.query"), "bot");
+  } else if (step === "assist") {
+    addBubble(t("chat.opened"), "bot");
   }
+}
+
+function afterMobile() {
+  if (answers.enquiry_type) {
+    askStep("query");
+    return;
+  }
+  askStep("enquiry_type");
 }
 
 function openWhatsApp() {
@@ -345,21 +428,32 @@ function openWhatsApp() {
   if (enquireTopic) {
     lines.push(`${t("wa.service")}: ${enquireTopic}`);
   }
+  if (answers.query) {
+    lines.push(`${t("wa.query")}: ${answers.query}`);
+  }
   const href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
-  enquireDialog?.close();
   window.open(href, "_blank", "noopener");
+  whatsappOpened = true;
 }
 
-function finishChat() {
-  chatStep = "done";
-  if (chatInput) {
-    chatInput.hidden = true;
-  }
-  if (chatTypes) {
-    chatTypes.hidden = true;
-  }
+function startAssistAfterWhatsApp() {
   addBubble(t("chat.thanks"), "bot");
-  window.setTimeout(openWhatsApp, 700);
+  window.setTimeout(() => {
+    openWhatsApp();
+    askStep("assist");
+  }, 600);
+}
+
+function handleQuery(text) {
+  answers.query = answers.query ? `${answers.query}\n${text}` : text;
+  setHidden("query", answers.query);
+  addBubble(text, "user");
+  addBubble(replyForQuery(text), "bot");
+  if (!whatsappOpened) {
+    startAssistAfterWhatsApp();
+    return;
+  }
+  setComposer("assist");
 }
 
 function acceptAnswer(value) {
@@ -390,13 +484,18 @@ function acceptAnswer(value) {
     answers.mobile = text;
     setHidden("mobile", text);
     addBubble(text, "user");
-    askStep("enquiry_type");
+    afterMobile();
+    return;
+  }
+  if (chatStep === "query" || chatStep === "assist") {
+    handleQuery(text);
   }
 }
 
 function openEnquire(service, category, productId) {
   enquireTopic = productId ? t(`product.${productId}.name`) : service || "";
   answers = {};
+  whatsappOpened = false;
   enquireForm?.reset();
   if (chatLog) {
     chatLog.innerHTML = "";
@@ -422,13 +521,20 @@ document.querySelectorAll("[data-enquire]").forEach((link) => {
   });
 });
 
+document.querySelector("[data-enquire-open]")?.addEventListener("click", () => {
+  if (enquireDialog?.open) {
+    return;
+  }
+  openEnquire("", "", "");
+});
+
 document.querySelector("[data-enquire-close]")?.addEventListener("click", () => {
   enquireDialog?.close();
 });
 
 enquireForm?.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (chatStep === "enquiry_type" || chatStep === "done") {
+  if (chatStep === "enquiry_type") {
     return;
   }
   acceptAnswer(chatInput?.value || "");
@@ -440,6 +546,23 @@ chatTypes?.querySelectorAll("[data-type]").forEach((button) => {
     answers.enquiry_type = value;
     setHidden("enquiry_type", value);
     addBubble(t(`type.${value}`), "user");
-    finishChat();
+    askStep("query");
+  });
+});
+
+chatSuggest?.querySelectorAll("[data-suggest]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const topic = button.dataset.suggest || "";
+    if (topic === "whatsapp") {
+      openWhatsApp();
+      addBubble(t("chat.opened"), "bot");
+      return;
+    }
+    const labels = {
+      address: t("suggest.address"),
+      hours: t("suggest.hours"),
+      docs: t("suggest.docs"),
+    };
+    handleQuery(labels[topic] || topic);
   });
 });
