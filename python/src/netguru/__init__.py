@@ -12,153 +12,125 @@ PACKAGE_DIR = Path(__file__).resolve().parent
 PHONE = "9755588862"
 WHATSAPP = "919755588862"
 
-SERVICES = [
-    {"label": "Online Form Filling", "category": "forms"},
-    {"label": "Free Guidance for Admission", "category": "counselling"},
-    {"label": "Counselling Services", "category": "counselling"},
-    {"label": "Nursing, BPharma & Medical Registration", "category": "forms"},
-    {"label": "Gumasta & MSME Registration", "category": "forms"},
-    {"label": "PAN Card & Aadhaar Card", "category": "ids"},
-    {"label": "Voter ID & Samagra ID", "category": "ids"},
-    {"label": "Scholarship Forms", "category": "forms"},
-    {"label": "All Government Forms", "category": "forms"},
-    {"label": "Photocopy & Printing", "category": "print"},
-]
-
 PRODUCTS = [
     {
         "id": "photocopy",
         "name": "Photocopy",
         "category": "print",
-        "price": 2,
-        "unit": "per page",
-        "image": "print-station.jpg",
+        "icon": "copy",
+        "image": "shop-photocopy.png",
         "blurb": "Black & white copies at the counter.",
     },
     {
         "id": "printout",
         "name": "Colour / document print",
         "category": "print",
-        "price": 10,
-        "unit": "per page",
-        "image": "workspace.jpg",
+        "icon": "printer",
+        "image": "shop-printout.png",
         "blurb": "Print forms, notes and documents.",
     },
     {
         "id": "admit-photo",
         "name": "Admit-card photo",
         "category": "print",
-        "price": 10,
-        "unit": "each",
-        "image": "private-desk.jpg",
+        "icon": "camera",
+        "image": "shop-admit-photo.png",
         "blurb": "Exam and admit-card size photos.",
     },
     {
         "id": "pvc-card",
         "name": "PVC card",
         "category": "ids",
-        "price": 70,
-        "unit": "each",
-        "image": "contact-window.jpg",
+        "icon": "id-card",
+        "image": "shop-pvc-card.png",
         "blurb": "Printed PVC identity cards.",
     },
     {
         "id": "passport-photo",
         "name": "Passport photo",
         "category": "print",
-        "price": None,
-        "unit": "",
-        "image": "counters.jpg",
+        "icon": "camera",
+        "image": "shop-passport-photo.png",
         "blurb": "Passport-size photos, same day.",
     },
     {
         "id": "scan-email",
         "name": "Document scan & email",
         "category": "print",
-        "price": None,
-        "unit": "",
-        "image": "workspace.jpg",
+        "icon": "scan",
+        "image": "shop-scan-email.png",
         "blurb": "Scan papers and send them by email.",
     },
     {
         "id": "online-form",
         "name": "Online form filling",
         "category": "forms",
-        "price": None,
-        "unit": "",
-        "image": "workspace.jpg",
+        "icon": "monitor",
+        "image": "shop-online-form.png",
         "blurb": "We fill and submit your online form.",
     },
     {
         "id": "govt-forms",
         "name": "All government forms",
         "category": "forms",
-        "price": None,
-        "unit": "",
-        "image": "shop-front.jpg",
+        "icon": "building",
+        "image": "shop-govt-forms.png",
         "blurb": "MP Online and other govt applications.",
     },
     {
         "id": "scholarship",
         "name": "Scholarship forms",
         "category": "forms",
-        "price": None,
-        "unit": "",
-        "image": "waiting-area.jpg",
+        "icon": "cap",
+        "image": "shop-scholarship.png",
         "blurb": "Scholarship and student aid forms.",
     },
     {
         "id": "gumasta-msme",
         "name": "Gumasta / MSME registration",
         "category": "forms",
-        "price": None,
-        "unit": "",
-        "image": "counters.jpg",
+        "icon": "clipboard",
+        "image": "shop-gumasta-msme.png",
         "blurb": "Shop licence and MSME paperwork.",
     },
     {
         "id": "medical-reg",
         "name": "Nursing / BPharma registration",
         "category": "forms",
-        "price": None,
-        "unit": "",
-        "image": "private-desk.jpg",
+        "icon": "medical",
+        "image": "shop-medical-reg.png",
         "blurb": "Medical and pharmacy registrations.",
     },
     {
         "id": "pan-aadhaar",
         "name": "PAN & Aadhaar services",
         "category": "ids",
-        "price": None,
-        "unit": "",
-        "image": "contact-window.jpg",
+        "icon": "id-card",
+        "image": "shop-pan-aadhaar.png",
         "blurb": "PAN, Aadhaar update and related work.",
     },
     {
         "id": "voter-samagra",
         "name": "Voter ID & Samagra ID",
         "category": "ids",
-        "price": None,
-        "unit": "",
-        "image": "entrance.jpg",
+        "icon": "id-card",
+        "image": "shop-voter-samagra.png",
         "blurb": "Voter card and Samagra ID help.",
     },
     {
         "id": "counselling",
         "name": "Admission counselling",
         "category": "counselling",
-        "price": 0,
-        "unit": "guidance",
-        "image": "waiting-area.jpg",
+        "icon": "users",
+        "image": "shop-counselling.png",
         "blurb": "Free guidance for college admissions.",
     },
     {
         "id": "exam-counselling",
         "name": "Exam counselling (NEET, JEE, CLAT…)",
         "category": "counselling",
-        "price": None,
-        "unit": "",
-        "image": "counters.jpg",
+        "icon": "book",
+        "image": "shop-exam-counselling.png",
         "blurb": "NEET, JEE, CLAT, CET, ePravesh and more.",
     },
 ]
@@ -233,20 +205,6 @@ GALLERY = [
 ]
 
 
-def whatsapp_link(label: str) -> str:
-    text = f"Namaste Net Guru, I need help with: {label}"
-    return f"https://wa.me/{WHATSAPP}?text={quote(text)}"
-
-
-def price_label(product: dict) -> str:
-    if product["price"] is None:
-        return "Get quote"
-    if product["price"] == 0:
-        return "Free guidance"
-    extra = f" {product['unit']}" if product["unit"] else ""
-    return f"₹{product['price']}{extra}"
-
-
 def create_app() -> Flask:
     app = Flask(
         __name__,
@@ -256,21 +214,21 @@ def create_app() -> Flask:
 
     @app.route("/")
     def home():
-        services = [
-            {**item, "href": whatsapp_link(item["label"])} for item in SERVICES
-        ]
         products = [
             {
                 **item,
-                "price_label": price_label(item),
-                "price_value": "" if item["price"] is None else item["price"],
+                "enquire_href": (
+                    "https://wa.me/"
+                    + WHATSAPP
+                    + "?text="
+                    + quote(f"Hello Net Guru, I want to enquire about: {item['name']}")
+                ),
             }
             for item in PRODUCTS
         ]
         return render_template(
             "index.html",
             gallery=GALLERY,
-            services=services,
             products=products,
             categories=CATEGORIES,
             counselling=COUNSELLING,
